@@ -1,10 +1,11 @@
 import LargeButton from "../LargeButton"
+import SectionTitle from "../partials/SectionTitle"
 import EventsList from "./EventsList"
 
 const EventsSection = () => {
   return (
     <section className="events-section">
-      <h2 className="section-title">Renginiai</h2>
+      <SectionTitle title="Renginiai" />
 
       <EventsList />
 

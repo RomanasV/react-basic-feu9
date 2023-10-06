@@ -16,8 +16,6 @@ const EventsList = () => {
       <EventItem
         url="/"
         title="Big Data Conference Europe 2023"
-        location="Vilnius, Lithuana & Online"
-        day="21"
         month="Lap"
       />
 

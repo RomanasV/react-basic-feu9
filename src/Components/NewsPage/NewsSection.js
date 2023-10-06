@@ -9,7 +9,7 @@ const NewsSection = () => {
 
       <MainNews />
       <SecondaryNews />
-      <LargeButton url="/" title="Visos naujienos" />
+      <LargeButton url="/" title="Visos naujienos" hideArrow={true} />
     </section>
   )
 }

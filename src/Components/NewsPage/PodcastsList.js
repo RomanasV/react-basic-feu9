@@ -1,11 +1,12 @@
-import PodcastItem from "./PodcastItem"
+import PodcastItem from './PodcastItem'
+import podcastImage from '../../podcast-image-border-min.jpg'
 
 const PodcastsList = () => {
   return (
     <div className="podcast-list">
 
       <PodcastItem 
-        imageSrc=""
+        imageSrc={podcastImage}
         imageAlt="test" 
         length="8:55" 
         title="Pojūčius pirštų galiukams sugrąžinti gali smegenų implantas" 
@@ -13,7 +14,7 @@ const PodcastsList = () => {
       />
 
       <PodcastItem 
-        imageSrc=""
+        imageSrc={podcastImage}
         imageAlt="test" 
         length="9:55" 
         title="Pojūčius pirštų galiukams sugrąžinti gali smegenų implantas!" 
@@ -21,7 +22,7 @@ const PodcastsList = () => {
       />
 
       <PodcastItem 
-        imageSrc=""
+        imageSrc={podcastImage}
         imageAlt="test" 
         length="10:55" 
         title="Pojūčius pirštų galiukams sugrąžinti gali smegenų implantas" 
@@ -29,7 +30,7 @@ const PodcastsList = () => {
       />
 
       <PodcastItem 
-        imageSrc=""
+        imageSrc={podcastImage}
         imageAlt="test" 
         length="7:55" 
         title="Pojūčius pirštų galiukams sugrąžinti gali smegenų implantas" 
