@@ -1,12 +1,11 @@
-import ContactUsPage from './ContactUsPage'
+// import ContactUsPage from './ContactUsPage'
+import NewsPage from './NewsPage'
 
 function App() {
   return (
     <div>
-      <h1>Hello</h1>
-      <p>Paragrafas</p>
-
-      <ContactUsPage />
+      <NewsPage />
+      {/* <ContactUsPage /> */}
     </div>
   )
 }
