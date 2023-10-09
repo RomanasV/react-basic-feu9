@@ -1,11 +1,13 @@
 import NewsSection from "./NewsSection"
 import VideoSection from "./VideoSection"
 
-const MainContent = () => {
+const MainContent = (props) => {
+  const { newsSectionData, videoSectionData } = props
+
   return (
     <main className="main-content">
-      <NewsSection />
-      <VideoSection />
+      <NewsSection data={newsSectionData} />
+      <VideoSection data={videoSectionData} />
     </main>
   )
 }

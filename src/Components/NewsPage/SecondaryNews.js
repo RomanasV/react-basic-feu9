@@ -1,43 +1,17 @@
 import NewsItem from './NewsItem'
 
-const SecondaryNews = () => {
+const SecondaryNews = (props) => {
+  const { data } = props
+
+  if (data.length === 0) {
+    return
+  }
+
+  const newsElements = data.map((item, index) => <NewsItem key={index} data={item} />)
+
   return (
     <div className="secondary-news-list">
-      <NewsItem 
-        title="Ar „ChatGPT“ užims mūsų darbo vietas?" 
-        category="AI & Deep learning"
-        date="2023-01-30"
-        url="/"
-        imageSrc="https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg" 
-        imageAlt="Test" 
-      />
-
-      <NewsItem 
-        title="Ar „ChatGPT“ užims mūsų darbo vietas?" 
-        category="AI & Deep learning"
-        date="2023-01-27"
-        url="/"
-        imageSrc="https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg" 
-        imageAlt="Test" 
-      />
-
-      <NewsItem 
-        title="Ar „ChatGPT“ užims mūsų darbo vietas?" 
-        category="AI & Deep learning"
-        date="2023-01-27"
-        url="/"
-        imageSrc="https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg" 
-        imageAlt="Test" 
-      />
-
-      <NewsItem 
-        title="Ar „ChatGPT“ užims mūsų darbo vietas?" 
-        category="AI & Deep learning"
-        date="2023-01-27"
-        url="/"
-        imageSrc="https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg" 
-        imageAlt="Test" 
-      />
+      {newsElements}
     </div>
   )
 }

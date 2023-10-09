@@ -1,16 +1,24 @@
 import LargeButton from "../LargeButton"
 
-const VideoSection = () => {
+const VideoSection = (props) => {
+  const { title, subTitle, buttonTitle, videoUrl } = props.data
+
+  if (!videoUrl) {
+    return
+  }
+
+  const titleElement = title && <h2 className="section-title">{title}</h2>
+  const subTitleElement = subTitle && <h3 className="section-sub-title">{subTitle}</h3>
+
   return (
     <section className="video-section">
-      <h2 className="section-title">Vaizdo įrašai</h2>
+      {titleElement}
 
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/b8dGCsP75HA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+      <iframe width="560" height="315" src={videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
-      <h3 className="section-sub-title">Jeigu galiu aš - gali ir tu!</h3>
-
-      {/* <a href="/" className="large-button">Visi vaizdo įrašai</a> */}
-      <LargeButton url="/" title="Visi vaizdo įrašai" />
+      {subTitleElement}
+      
+      <LargeButton url="/" title={buttonTitle} />
     </section>
   )
 }

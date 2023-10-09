@@ -2,14 +2,16 @@ import LargeButton from "../LargeButton"
 import SectionTitle from "../partials/SectionTitle"
 import EventsList from "./EventsList"
 
-const EventsSection = () => {
+const EventsSection = (props) => {
+  const { eventsListData, title, buttonTitle } = props.data
+
   return (
     <section className="events-section">
-      <SectionTitle title="Renginiai" />
+      <SectionTitle title={title} />
 
-      <EventsList />
+      <EventsList data={eventsListData} />
 
-      <LargeButton title="Daugiau" url="/" />
+      <LargeButton title={buttonTitle} url="/" />
     </section>
   )
 }

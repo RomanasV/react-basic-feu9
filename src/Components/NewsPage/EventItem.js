@@ -1,29 +1,11 @@
 import React from 'react'
 
 const EventItem = (props) => {
-  // const day = props.day
-  // const month = props.month
-  // const imageSrc = props.imageSrc
-  // const imageAlt = props.imageAlt
-  // const location = props.location
-  // const title = props.title
-  // const url = props.url
-
-  const { day, month, imageAlt, imageSrc, location, title, url } = props
+  const { day, month, imageAlt, imageSrc, location, title, url } = props.data
 
   if (!title || !url) {
     return
   }
-
-  // let imageElement = ''
-  
-  // if (imageSrc) {
-  //   imageElement = (
-  //     <div className="image-wrapper">
-  //       <img src={imageSrc} alt={imageAlt} />
-  //     </div>
-  //   )
-  // }
 
   const imageElement = imageSrc && (
     <div className="image-wrapper">
