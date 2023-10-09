@@ -1,11 +1,11 @@
 import ShopsList from './ShopsList'
 
-function ShopsWrapper() {
+function ShopsWrapper(props) {
   return (
     <div className="shops-wrapper">
       <h1 className="page-title">Find us</h1>
 
-      <ShopsList />
+      <ShopsList shopsData={props.shops} />
     </div>
   )
 }

@@ -1,5 +1,4 @@
 function ShopItem(props) {
-  console.log(props)
   return (
     <div className="shop-item">
       <h2 className="shop-title">{props.title}</h2>
