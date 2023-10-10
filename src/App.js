@@ -1,11 +1,13 @@
-// import ContactUsPage from './ContactUsPage'
-import NewsPage from './NewsPage'
+import ContactUsPage from './ContactUsPage'
+// import NewsPage from './NewsPage'
+import './App.css'
 
 function App() {
   return (
     <div>
-      <NewsPage />
-      {/* <ContactUsPage /> */}
+      {/* <NewsPage /> */}
+
+      <ContactUsPage />
     </div>
   )
 }

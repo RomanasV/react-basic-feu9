@@ -1,4 +1,4 @@
-import ShopsList from './ShopsList'
+import ShopsList from './ShopsList/ShopsList'
 
 function ShopsWrapper(props) {
   return (

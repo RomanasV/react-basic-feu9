@@ -1,4 +1,5 @@
-import MapWrapper from './Components/MapWrapper'
+import Container from './Components/Container/Container'
+import MapWrapper from './Components/MapWrapper/MapWrapper'
 import ShopsWrapper from './Components/ShopsWrapper'
 import './ContactUsPage.css'
 
@@ -35,12 +36,12 @@ function ContactUsPage() {
   ]
 
   return (
-    <div className="container">
+    <Container>
       <div className="content-wrapper">
         <ShopsWrapper shops={shopsData} />
         <MapWrapper />
       </div>
-    </div>
+    </Container>
   )
 }
 

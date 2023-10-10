@@ -7,14 +7,6 @@ body {
   margin: 0;
 }
 
-.container {
-  max-width: 1230px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 30px;
-  padding-left: 30px;
-}
-
 .page-title {
   margin: 0;
 }
@@ -319,12 +311,5 @@ body {
   
   .secondary-news-list {
       grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 450px) {
-  .container {
-    padding-left: 15px;
-    padding-right: 15px;
   }
 }

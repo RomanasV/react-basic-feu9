@@ -1,0 +1,13 @@
+.map-wrapper {
+  display: flex;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+}
+
+@media (max-width: 599px) {
+  .map-wrapper {
+    order: -10;
+  }
+}

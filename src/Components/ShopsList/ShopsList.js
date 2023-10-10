@@ -1,4 +1,5 @@
-import ShopItem from "./ShopItem"
+import ShopItem from '../ShopItem/ShopItem'
+import './ShopsList.css'
 
 function ShopsList(props) {
   const { shopsData } = props
