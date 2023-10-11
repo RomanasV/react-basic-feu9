@@ -1,27 +1,62 @@
 const CityItem = (props) => {
+  const { fullWidth } = props
   const { name, population, isCapital, touristAttractions, location } = props.data
   const { continent, country } = location
 
-  console.log(name)
-  console.log(population)
-  console.log(isCapital)
-  console.log(touristAttractions)
-  console.log(continent)
-  console.log(country)
+  let capitalClass = ''
+  let titleElement = name
+  let capitalDescription = ''
 
-  const description = `${name} city is located in ${continent}, ${country} and has population of ${population} people.`
+  if (isCapital) {
+    capitalClass = 'capital'
+    titleElement = `${name} (capital)`
+    capitalDescription = ` ${name} is the capital of ${country}.`
+  }
 
-  return (
-    <div className='city-item capital'>
-      <h2>{name} (capital)</h2>
-      <p>{description}</p>
+  // const capitalClass = isCapital ? 'capital' : ''
 
+  // let titleElement = name
+
+  // if (isCapital) {
+  //   titleElement += ' (capital)'
+  // }
+
+  // const titleElement = isCapital ? `${name} (capital)` : name
+
+  // const capitalDescription = isCapital ? ` ${name} is the capital of ${country}.` : ''
+
+  const descriptionElement = `${name} city is located in ${continent}, ${country} and has population of ${population} people.${capitalDescription}`
+
+  let touristAttractionsElement = ''
+
+  if (touristAttractions.length > 0) {
+    // let touristAttractionsTitle = `Main Tourist attractions of ${name} are:`
+
+    // if (touristAttractions.length === 1) {
+    //   touristAttractionsTitle = `Main Tourist attraction of ${name} is:`
+    // }
+
+    const touristAttractionsTitle = touristAttractions.length === 1 ? `Main Tourist attraction of ${name} is:` : `Main Tourist attractions of ${name} are:`
+
+    touristAttractionsElement = (
       <div className='tourist-attractions-wrapper'>
-        <h3>Main Tourist attractions of {name} are:</h3>
+        <h3>{touristAttractionsTitle}</h3>
         <ul>
-          {touristAttractions.map((location, index) => <li key={index}>{location}</li>)}
+          {touristAttractions.map((location, index) => (
+            <li key={index}>{location}</li>
+          ))}
         </ul>
       </div>
+    )
+  }
+
+  let lastItemClass = fullWidth ? 'last-city-item' : ''
+
+  return (
+    <div className={`city-item ${capitalClass} ${lastItemClass}`}>
+      <h2>{titleElement}</h2>
+      <p>{descriptionElement}</p>
+      {touristAttractionsElement}
     </div>
   )
 }

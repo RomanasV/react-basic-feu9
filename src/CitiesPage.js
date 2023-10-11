@@ -1,19 +1,20 @@
 import { useState } from "react";
 import Container from "./Components/Container/Container"
 import CityItem from "./Components/CityItem";
+import './CitiesPage.css'
 
 const CitiesPage = () => {
   const citiesData = [
-    {
-        name: 'Vilnius',
-        population: 500000,
-        location: {
-            continent: 'Europe',
-            country: 'Lietuva',
-        },
-        touristAttractions: ['Gedimino pilies bokstas', 'Vilniaus katedra'],
-        isCapital: true,
-    },
+    // {
+    //     name: 'Vilnius',
+    //     population: 500000,
+    //     location: {
+    //         continent: 'Europe',
+    //         country: 'Lietuva',
+    //     },
+    //     touristAttractions: ['Gedimino pilies bokstas', 'Vilniaus katedra'],
+    //     isCapital: true,
+    // },
     {
         name: 'New York',
         population: 8500000,
@@ -108,11 +109,17 @@ const CitiesPage = () => {
 
   const [cities, setCities] = useState(citiesData)
 
-  const citiesListElement = cities.map((city, index) => <CityItem key={index} data={city} />)
+  const citiesListElement = cities.map((city, index) => {
+    const lastOddElement = index + 1 === cities.length && index % 2 === 0
+
+    return <CityItem key={index} data={city} fullWidth={lastOddElement} />
+  })
 
   return (
     <Container>
-      {citiesListElement}
+      <div className="cities-list">
+        {citiesListElement}
+      </div>
     </Container>
   )
 }
