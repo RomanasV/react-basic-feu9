@@ -1,14 +1,16 @@
 // import ContactUsPage from './ContactUsPage'
 // import NewsPage from './NewsPage'
+// import CounterPage from './CounterPage'
 import './App.css'
-import CounterPage from './CounterPage'
+import CitiesPage from './CitiesPage'
 
 function App() {
   return (
     <div>
       {/* <NewsPage /> */}
       {/* <ContactUsPage /> */}
-      <CounterPage />
+      {/* <CounterPage /> */}
+      <CitiesPage />
     </div>
   )
 }
