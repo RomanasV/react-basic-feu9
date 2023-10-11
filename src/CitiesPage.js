@@ -4,6 +4,9 @@ import CityItem from "./Components/CityItem";
 import './CitiesPage.css'
 
 const CitiesPage = () => {
+  const [name, setName] = useState('')
+  const [population, setPopulation] = useState(0)
+
   const citiesData = [
     // {
     //     name: 'Vilnius',
@@ -115,8 +118,59 @@ const CitiesPage = () => {
     return <CityItem key={index} data={city} fullWidth={lastOddElement} />
   })
 
+  const newCityHandler = (event) => {
+    event.preventDefault()
+
+    const newCity = {
+      name,
+      population,
+      location: {
+          continent: 'Unknown',
+          country: 'Unknown',
+      },
+      touristAttractions: [],
+      isCapital: false,
+    }
+
+    setName('')
+    setPopulation(0)
+
+    console.log(newCity)
+  }
+
+  const nameInputHandler = (event) => setName(event.target.value)
+  const populationInputHandler = (event) => setPopulation(event.target.valueAsNumber)
+
   return (
     <Container>
+      <form id="city-form" onSubmit={newCityHandler}>
+        <div className="form-control">
+          <label htmlFor="name">City name:</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            value={name}
+            onChange={nameInputHandler}
+          />
+        </div>
+
+        <div className="form-control">
+          <label htmlFor="population">City population:</label>
+          <input 
+            type="number"
+            min={0}
+            step={1000}
+            id="population" 
+            name="population" 
+            value={population}
+            onChange={populationInputHandler}
+          />
+        </div>
+
+        <input type="submit" value="Create New City" />
+      </form>
+
       <div className="cities-list">
         {citiesListElement}
       </div>

@@ -1,3 +1,16 @@
+#city-form {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  padding: 30px;
+}
+
+#city-form .form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
 .cities-list {
   display: flex;
   flex-wrap: wrap;
