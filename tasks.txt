@@ -1,0 +1,27 @@
+CITIES užduotis:
+0. Sukurti CitiesPage komponentą.
+
+1. Jame sukurti masyvą, kuriame būtų 10 skirtingų miestų. Panaudoti anksčiau kurtą masyvą. Kiekvienas miestas turi būti objekto tipo ir turi turėti šiuos properties:
+ 1.1. name - miesto pavadinimas (string)
+ 1.2. population - miesto populiacija (number)
+ 1.3. location - (object)
+   1.3.1. continent - žemynas (string)
+   1.3.2. country - šalis (string)
+ 1.4. touristAttractions - lankytinos vietos (array)
+ 1.5. isCapital - reikšmė nurodanti ar miestas yra sostinė (boolean)
+
+2. Atvaizduoti visų miestų informaciją sukuriant CityItem komponentą.
+
+3.1. Jeigu miestas yra sostinė, tai:
+ 3.1.1. Prie miesto pavadinimo pridėti žodį capital, pvz.: Vilnius (capital)
+ 3.1.2. Prie miesto aprašymo pridėti tekstą, kuris nusako jog tai šalies sostinė, pvz.: „Vilnius is the capital of Lithuania."
+ 3.1.3. Jeigu miestas yra sostinė, tai prie apgaubiančio elemento pridėti klasę „capital".
+
+4. Priklausomai nuo miesto lankytinų objektų kiekio, tekstas turi skirtis:
+ 4.1. Jeigu lankytina vieta tik viena, tai turėtų būti naudojama vienaskaita, pvz.: „Main Tourist attraction of Vilnius is".
+ 4.2. Jeigu lankytinų vietų yra daugiau, nei viena, tai tekstas turėtų būti daugiskaitoje, pvz. „Main Tourist attractions of Kaunas are".
+ 4.3. Jeigu lankytinų vietų nėra, tai tekstas neturėtų būti atvaizduojamas.
+
+5. Jeigu miestų skaičius nėra porinis, tai paskutinio miesto plotis turi būti 100%, o visų kitų - 50%.
+
+6. Sukurti formą, kurioje galima pridėti naują miestą į miestų state masyvą.
