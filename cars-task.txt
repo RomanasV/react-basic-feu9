@@ -1,0 +1,51 @@
+1.1. Sukurti formą, kurioje galima įrašyti automobilio:
+    1.1. Brand'ą
+    1.2. Modelį
+    1.3. Variklio tipą (electric, diesel, petrol, hybrid)
+    1.4. Bazinę kainą
+    1.5. Kilometražą
+    1.6. Spalvą (juoda, raudona, mėlyna, sidabrinė, balta, 'special blue', 'other')
+        1.6.1. Jeigu pasirenkama spalva yra 'other', tai sukurti papildomą text tipo input elementą, kuriame reikia įrašyti spalvą.
+    1.7. Nuorodą į automobilio nuotrauką
+1.2. Formos submit metu, informaciją surinkti ir atvaizduoti automobilio HTML elementą ekrane.
+
+2. Automobilio HTML elemente, papildomai pridėti kainą už papildomas paslaugas ir galutinę kainą pagal šiuos kriterijus:
+    2.1. Jei variklis 'electric' prie bazinės kainos pridėti 10000€. 
+    2.2. Jei variklis 'hybrid' prie bazinės kainos pridėti 7500€.
+    2.3. Jei variklis 'diesel' prie bazinės kainos pridėti 5000€.
+    2.4. Jei variklis 'petrol' prie bazinės kainos prideti nereikia nieko.
+
+3. Pridėti nuolaidą kainai už automobilio kilometražą:
+    3.1. Jeigu rida daugiau nei 0, tai kaina sumažėja 10%.
+    3.2. Jeigu rida daugiau nei 20000, tai kaina sumažėja 15%.
+    3.3. Jeigu rida daugiau nei 50000, tai kaina sumažėja 20%.
+    3.4. Jeigu rida daugiau nei 100000, tai kaina sumažėja 30%.
+    3.5. Jeigu rida daugiau nei 400000, tai kaina sumažėja 50%.
+
+4. Pridėti papildomą kainą už pasirinktą spalvą:
+    4.1. Automobilio spalva pagal nutylėjimą yra juoda.
+    4.2. Jeigu nurodyta spalva yra 'special blue', tai automobilio kaina turi padidėti 500€.
+    4.3. Jeigu nurodytos spalvos nėra tarp bazinių spalvų, tai automobilio kaina turėtų padidėti 3000€.
+       
+5. Formoje pridėti laukelį nuolaidai įvesti. Jis nėra privalomas, tačiau jeigu nuolaida yra įvesta, galutinėje automobilio kainoje ji turi būti įvardinta.
+
+ATVAIZDAVIMAS:
+
+Automobilio kaina:
+1. Bazinė kaina.
+
+2. Papildomos paslaugos:
+2.1. Variklio tipas.
+2.2. Spalva.
+2.3. Viso už papildomas paslaugas (variklio tipo kaina + spalvos kaina)
+
+3. Kainos sumažėjimas:
+3.1. Dėl kilometražo.
+3.2. Nuolaida.
+3.3. Viso kainos sumažėjimas (kilometražo nuolaida + nuolaida)
+
+4. Galutinė kaina (Bazinė kaina + papildomos paslaugos - nuolaidos)
+
+5. PVM.
+
+6. Galutinė kaina su PVM.
