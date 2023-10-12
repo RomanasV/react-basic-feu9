@@ -17,29 +17,11 @@ const CityItem = (props) => {
     capitalDescription = ` ${name} is the capital of ${country}.`
   }
 
-  // const capitalClass = isCapital ? 'capital' : ''
-
-  // let titleElement = name
-
-  // if (isCapital) {
-  //   titleElement += ' (capital)'
-  // }
-
-  // const titleElement = isCapital ? `${name} (capital)` : name
-
-  // const capitalDescription = isCapital ? ` ${name} is the capital of ${country}.` : ''
-
   const descriptionElement = `${name} city is located in ${continent}, ${country} and has population of ${population} people.${capitalDescription}`
 
   let touristAttractionsElement = ''
 
   if (touristAttractions.length > 0) {
-    // let touristAttractionsTitle = `Main Tourist attractions of ${name} are:`
-
-    // if (touristAttractions.length === 1) {
-    //   touristAttractionsTitle = `Main Tourist attraction of ${name} is:`
-    // }
-
     const touristAttractionsTitle = touristAttractions.length === 1 ? `Main Tourist attraction of ${name} is:` : `Main Tourist attractions of ${name} are:`
 
     touristAttractionsElement = (
