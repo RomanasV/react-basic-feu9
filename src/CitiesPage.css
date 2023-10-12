@@ -11,6 +11,10 @@
   margin-bottom: 15px;
 }
 
+#city-form .form-control.form-control-inline {
+  flex-direction: row;
+}
+
 .cities-list {
   display: flex;
   flex-wrap: wrap;
