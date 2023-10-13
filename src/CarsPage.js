@@ -1,63 +1,52 @@
 import { useState } from 'react'
 import Container from './Components/Container/Container'
+import CarForm from './Components/CarForm'
+import CarItem from './Components/CarItem'
 
 const CarsPage = () => {
-  const [selectedColor, setSelectedColor] = useState('black')
-  const [customColor, setCustomColor] = useState('')
+  const carsData = [
+    {
+      brand: 'Brand',
+      model: 'Model',
+      engine: 'electric',
+      basePrice: 10000,
+      mileage: 1000,
+      image: '',
+      color: 'black'
+    },
+    {
+      brand: 'Brand3',
+      model: 'Model',
+      engine: 'electric',
+      basePrice: 10000,
+      mileage: 1000,
+      image: '',
+      color: 'black'
+    },
+    {
+      brand: 'Brand4',
+      model: 'Model',
+      engine: 'electric',
+      basePrice: 10000,
+      mileage: 1000,
+      image: '',
+      color: 'black'
+    },
+  ]
 
-  const colorHandler = (event) => setSelectedColor(event.target.value)
-  const customColorHandler = (event) => setCustomColor(event.target.value)
+  const [cars, setCars] = useState(carsData)
 
-  const newCarHandler = (event) => {
-    event.preventDefault()
-
-    // let pickedColor = selectedColor
-
-    // if (selectedColor === 'other') {
-    //   pickedColor = customColor
-    // }
-    
-    const pickedColor = selectedColor === 'other' ? customColor : selectedColor
-
-    const newCar = {
-      color: pickedColor
-    }
-
-    console.log(newCar)
+  const newCarHandler = (newCar) => {
+    setCars(prevState => [newCar, ...prevState])
   }
 
   return (
     <Container>
-      <form onSubmit={newCarHandler}>
-        <div className="form-control">
-          <label htmlFor="color">Color:</label>
-          <select id="color" name="color" onChange={colorHandler} value={selectedColor}>
-            <option value="black">Black</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="silver">Silver</option>
-            <option value="white">White</option>
-            <option value="special blue">Special Blue</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
+      <CarForm onNewCar={newCarHandler} />
 
-        {selectedColor === 'other' && (
-          <div className="form-control">
-            <label htmlFor="custom-color">Enter your custom color:</label>
-            <input 
-              type="text" 
-              id="custom-color" 
-              name="custom-color"
-              value={customColor}
-              onChange={customColorHandler}
-            />
-          </div>
-        )}
-
-        <button type="submit">Submit</button>
-
-      </form>
+      <div className="cars-list">
+        {cars.map((car, index) => <CarItem data={car} key={index} />)}
+      </div>
     </Container>
   )
 }
