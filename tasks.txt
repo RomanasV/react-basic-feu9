@@ -25,3 +25,31 @@ CITIES užduotis:
 5. Jeigu miestų skaičius nėra porinis, tai paskutinio miesto plotis turi būti 100%, o visų kitų - 50%.
 
 6. Sukurti formą, kurioje galima pridėti naują miestą į miestų state masyvą.
+
+
+TODO UŽDUOTIS:
+1. Sukurti 4 komponentus:
+1.1. TodoPage (pradinis komponentas)
+1.2. TodoForm (forma)
+1.3. TodoList (visų todo užduočių sąrašas)
+1.4. TodoItem (vienos todo užduoties komponentas)
+
+2. Kiekviena sukurta užduotis turi turėti:
+2.1. Unikalų id (prisideda automatiškai)
+2.2. Sukūrimo datą (prisideda automatiškai)
+2.3. Pavadinimą
+2.4. Aprašymą
+2.5. Done (nurodo ar užduotis jau atlikta)
+2.6. Data iki kada užduotį reikia atlikti
+
+3. Atvaizduoti kiek liko laiko iki užduoties deadline.
+4. Pridėti galimybę pažymėti užduotį kaip atliktą.
+
+5. Pridėti galimybę ištrinti užduotį.
+6. Pridėti galimybę redaguoti užduotį. 
+6.1. Redaguojant užduotį id ir sukūrimo data lieka tokie patys.
+6.2. Redaguojant užduotį pridėti naują property, kuri nurodo kada buvo modifikuota užduotis. Redagavimo datą atvaizduoti ekrane.
+
+7. Padaryti jog atliktos užduotys būtų atvaizduojamos pabaigoje, o dar neatliktos - pradžioje.
+
+8. Pridėti galimybė filtruoti pagal užduočių pavadinimas ar aprašymus.
