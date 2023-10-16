@@ -1,6 +1,6 @@
 const CarItem = (props) => {
-  console.log(props.data)
-  const { brand, model, color, engine, image, mileage, basePrice, customColor, discount } = props.data
+  const { onRemoveCar } = props
+  const { brand, model, color, engine, image, mileage, basePrice, customColor, discount, id } = props.data
 
   // let enginePrice = 0
 
@@ -98,6 +98,8 @@ const CarItem = (props) => {
     <div className="car-item">
       <h2>{brand} ({model})</h2>
 
+      {image && <img style={{width: '100%'}} src={image} alt={`${color} ${brand} ${model}`} />}
+
       <div>
         <h3>1. Automobilio kaina:</h3>
         <p>1.1. Bazinė kaina: {basePrice} €</p>
@@ -123,6 +125,8 @@ const CarItem = (props) => {
         <p>5. PVM: {vatPrice} €</p>
         <p>6. Galutinė kaina: {totalPriceVat} €</p>
       </div>
+
+      <button onClick={() => onRemoveCar(id)}>Delete</button>
     </div>
   )
 }

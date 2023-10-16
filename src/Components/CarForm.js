@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid'
+
 import { useState } from 'react'
 
 const CarForm = (props) => {
@@ -33,6 +35,7 @@ const CarForm = (props) => {
     const pickedColor = selectedColor === 'other' ? customColor : selectedColor
 
     const newCar = {
+      id: uuid(),
       brand,
       model,
       engine,
