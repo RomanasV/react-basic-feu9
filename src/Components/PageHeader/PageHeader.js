@@ -14,6 +14,10 @@ const PageHeader = () => {
             </li>
 
             <li className='nav-item'>
+              <NavLink to='/todo'>Todo</NavLink>
+            </li>
+
+            <li className='nav-item'>
               <NavLink to='/cities'>Cities</NavLink>
             </li>
 

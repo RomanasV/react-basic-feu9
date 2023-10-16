@@ -1,6 +1,6 @@
-import Container from './Components/Container/Container'
-import MapWrapper from './Components/MapWrapper/MapWrapper'
-import ShopsWrapper from './Components/ShopsWrapper'
+import Container from '../Components/Container/Container'
+import MapWrapper from '../Components/MapWrapper/MapWrapper'
+import ShopsWrapper from '../Components/ShopsWrapper'
 import './ContactUsPage.css'
 
 function ContactUsPage() {

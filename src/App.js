@@ -1,11 +1,12 @@
-import ContactUsPage from './ContactUsPage'
-import NewsPage from './NewsPage'
-import CounterPage from './CounterPage'
-import CitiesPage from './CitiesPage'
 import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import CarsPage from './CarsPage'
+import ContactUsPage from './pages/ContactUsPage'
+import NewsPage from './pages/NewsPage'
+import CounterPage from './pages/CounterPage'
+import CitiesPage from './pages/CitiesPage'
+import CarsPage from './pages/CarsPage'
 import PageHeader from './Components/PageHeader/PageHeader'
+import TodoPage from './pages/TodoPage/TodoPage'
+import './App.css'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/cities' element={<CitiesPage />} />
         <Route path='/counter' element={<CounterPage />} />
         <Route path='/cars' element={<CarsPage />} />
+        <Route path='/todo' element={<TodoPage />} />
         <Route path='/code-academy/news' element={<NewsPage />} />
         <Route path='/code-academy/contacts' element={<ContactUsPage />} />
 

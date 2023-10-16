@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Container from './Components/Container/Container'
+import Container from '../Components/Container/Container'
 
 const CounterPage = () => {
   const initialNum = 5

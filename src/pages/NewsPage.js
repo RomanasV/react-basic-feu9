@@ -1,6 +1,6 @@
-import MainContent from './Components/NewsPage/MainContent'
-import SidebarContent from './Components/NewsPage/SidebarContent'
-import podcastImage from './podcast-image-border-min.jpg'
+import MainContent from '../Components/NewsPage/MainContent'
+import SidebarContent from '../Components/NewsPage/SidebarContent'
+import podcastImage from '../images/podcast-image-border-min.jpg'
 import './NewsPage.css'
 
 const NewsPage = () => {

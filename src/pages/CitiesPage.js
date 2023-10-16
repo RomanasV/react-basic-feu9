@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Container from "./Components/Container/Container"
-import CityItem from "./Components/CityItem";
+import Container from "../Components/Container/Container"
+import CityItem from "../Components/CityItem";
 import './CitiesPage.css'
-import CitiesForm from "./Components/CitiesForm";
+import CitiesForm from "../Components/CitiesForm";
 
 const CitiesPage = () => {
   const citiesData = [

@@ -1,9 +1,9 @@
 import { v4 as uuid } from 'uuid'
 
 import { useState } from 'react'
-import Container from './Components/Container/Container'
-import CarForm from './Components/CarForm'
-import CarItem from './Components/CarItem'
+import Container from '../Components/Container/Container'
+import CarForm from '../Components/CarForm'
+import CarItem from '../Components/CarItem'
 
 const CarsPage = () => {
   const carsData = [
