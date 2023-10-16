@@ -6,6 +6,8 @@ const CarForm = (props) => {
   const engineTypes = ['petrol', 'electric', 'diesel', 'hybrid']
   const defaultEngine = engineTypes[0]
 
+  const colorOptions = ['black', 'red', 'blue', 'silver', 'white', 'special blue', 'other']
+
   const [brand, setBrand] = useState('')
   const [model, setModel] = useState('')
   const [engine, setEngine] = useState(defaultEngine)
@@ -14,7 +16,7 @@ const CarForm = (props) => {
   const [image, setImage] = useState('')
   const [selectedColor, setSelectedColor] = useState('black')
   const [customColor, setCustomColor] = useState('')
-
+  const [discount, setDiscount] = useState('')
 
   const colorHandler = (event) => setSelectedColor(event.target.value)
   const customColorHandler = (event) => setCustomColor(event.target.value)
@@ -37,7 +39,9 @@ const CarForm = (props) => {
       basePrice,
       mileage,
       image,
-      color: pickedColor
+      discount,
+      color: pickedColor,
+      customColor: selectedColor === 'other'
     }
 
     setBrand('')
@@ -48,6 +52,7 @@ const CarForm = (props) => {
     setImage('')
     setCustomColor('')
     setSelectedColor('black')
+    setDiscount('')
 
     onNewCar(newCar)
   }
@@ -58,6 +63,7 @@ const CarForm = (props) => {
   const mileageInputHandler = event => setMileage(event.target.value)
   const imageInputHandler = event => setImage(event.target.value)
   const engineInputHandler = event => setEngine(event.target.value)
+  const discountInputHandler = event => setDiscount(event.target.value)
 
   return (
     <form onSubmit={newCarHandler}>
@@ -129,13 +135,7 @@ const CarForm = (props) => {
       <div className="form-control">
         <label htmlFor="color">Color:</label>
         <select id="color" name="color" onChange={colorHandler} value={selectedColor}>
-          <option value="black">Black</option>
-          <option value="red">Red</option>
-          <option value="blue">Blue</option>
-          <option value="silver">Silver</option>
-          <option value="white">White</option>
-          <option value="special blue">Special Blue</option>
-          <option value="other">Other</option>
+          {colorOptions.map((color, index) => <option key={index} value={color}>{color}</option>)}
         </select>
       </div>
 
@@ -151,6 +151,19 @@ const CarForm = (props) => {
           />
         </div>
       )}
+
+      <div className="form-control">
+        <label htmlFor="discount">Discount:</label>
+        <input 
+          type="number"
+          min={0}
+          max={100}
+          id="discount" 
+          name="discount"
+          value={discount}
+          onChange={discountInputHandler}
+        />
+      </div> 
 
       <button type="submit">Submit</button>
 
