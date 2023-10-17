@@ -36,6 +36,7 @@ const TodoPage = () => {
   ]
 
   const [todos, setTodos] = useState(initialData)
+  const [editTodo, setEditTodo] = useState(null)
 
   const doneTodoHandler = (id) => {
     const clickedTodoIndex = todos.findIndex(todo => todo.id === id)
@@ -58,16 +59,32 @@ const TodoPage = () => {
   }
 
   const addTodoHandler = (newTodo) => {
-    setTodos(prevState => [newTodo, ...prevState])
+    if (editTodo) {
+      setTodos(prevState => {
+        const editId = newTodo.id
+        const editIndex = todos.findIndex(todo => todo.id === editId)
+        const newState = [...prevState]
+        newState[editIndex] = newTodo
+
+        return newState
+      })      
+    } else {
+      setTodos(prevState => [newTodo, ...prevState])
+    }
+  }
+
+  const editTodoHandler = (id) => {
+    const selectedEditTodo = todos.find(todo => todo.id === id)
+    setEditTodo(selectedEditTodo)
   }
 
   return (
     <Container>
       <h1>Todo page</h1>
 
-      <TodoForm onNewTodo={addTodoHandler} />
+      <TodoForm editData={editTodo} onNewTodo={addTodoHandler} />
 
-      <TodoList onTodoRemove={removeTodoHandler} onTodoDone={doneTodoHandler} data={todos} />
+      <TodoList onTodoEdit={editTodoHandler} onTodoRemove={removeTodoHandler} onTodoDone={doneTodoHandler} data={todos} />
     </Container>
   )
 }

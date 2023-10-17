@@ -1,6 +1,6 @@
 import TodoItem from "../TodoItem/TodoItem"
 
-const TodoList = ({ data, onTodoDone, onTodoRemove }) => {
+const TodoList = ({ data, onTodoDone, onTodoRemove, onTodoEdit }) => {
   if (data.length === 0) {
     return (
       <div>
@@ -9,7 +9,7 @@ const TodoList = ({ data, onTodoDone, onTodoRemove }) => {
     )
   }
 
-  const todoWrapperElement = data.map(item => <TodoItem onTodoRemove={onTodoRemove} onTodoDone={onTodoDone} key={item.id} data={item} />)
+  const todoWrapperElement = data.map(item => <TodoItem onTodoEdit={onTodoEdit} onTodoRemove={onTodoRemove} onTodoDone={onTodoDone} key={item.id} data={item} />)
 
   return (
     <div>

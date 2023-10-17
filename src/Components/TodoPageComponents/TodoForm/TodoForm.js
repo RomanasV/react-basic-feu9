@@ -1,11 +1,20 @@
 import { v4 as uuid } from 'uuid'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const TodoForm = ({ onNewTodo }) => {
+const TodoForm = ({ onNewTodo, editData }) => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [done, setDone] = useState(false)
   const [dueDate, setDueDate] = useState('')
+  
+  useEffect(() => {
+    if (editData) {
+      setTitle(editData.title)
+      setDescription(editData.description)
+      setDone(editData.done)
+      setDueDate(editData.dueDate)
+    }
+  }, [editData])
 
   const titleHandler = (event) => setTitle(event.target.value)
   const descriptionHandler = (event) => setDescription(event.target.value)
@@ -26,13 +35,19 @@ const TodoForm = ({ onNewTodo }) => {
     const fullDate = date.toISOString().slice(0, 10)
 
     const newTodo = {
-      id: uuid(),
-      date: fullDate,
       title,
       description,
       done,
       dueDate,
       updatedDate: null,
+    }
+
+    if (editData) {
+      newTodo.id = editData.id
+      newTodo.date = editData.date
+    } else {
+      newTodo.id = uuid()
+      newTodo.date = fullDate
     }
 
     onNewTodo(newTodo)

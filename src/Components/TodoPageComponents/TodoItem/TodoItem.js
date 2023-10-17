@@ -1,4 +1,4 @@
-const TodoItem = ({ data, onTodoDone, onTodoRemove }) => {
+const TodoItem = ({ data, onTodoDone, onTodoRemove, onTodoEdit }) => {
   const { title, description, date, done, dueDate, id, updatedDate } = data
 
   if (!title) {
@@ -27,6 +27,7 @@ const TodoItem = ({ data, onTodoDone, onTodoRemove }) => {
       </div>
 
       <button onClick={() => onTodoRemove(id)}>Remove</button>
+      <button onClick={() => onTodoEdit(id)}>Edit</button>
     </div>
   )
 }
