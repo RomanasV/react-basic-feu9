@@ -38,26 +38,39 @@ const TodoPage = () => {
   const [todos, setTodos] = useState(initialData)
 
   const doneTodoHandler = (id) => {
-    console.log(id)
+    const clickedTodoIndex = todos.findIndex(todo => todo.id === id)
+
+    setTodos(prevState => {
+      const newState = [...prevState]
+      const clickedTodo = newState[clickedTodoIndex]
+      const updatedTodo = {...clickedTodo}
+      updatedTodo.done = !updatedTodo.done
+
+      // newState.splice(clickedTodoIndex, 1, updatedTodo)
+      newState[clickedTodoIndex] = updatedTodo
+
+      return newState
+    })
+  }
+
+  const removeTodoHandler = (id) => {
+    setTodos(prevState => prevState.filter(todo => todo.id !== id))
+  }
+
+  const addTodoHandler = (newTodo) => {
+    setTodos(prevState => [newTodo, ...prevState])
   }
 
   return (
     <Container>
       <h1>Todo page</h1>
 
-      <TodoForm />
+      <TodoForm onNewTodo={addTodoHandler} />
 
-      <TodoList onTodoDone={doneTodoHandler} data={todos} />
+      <TodoList onTodoRemove={removeTodoHandler} onTodoDone={doneTodoHandler} data={todos} />
     </Container>
   )
 }
 
 export default TodoPage
 
-// 2. Kiekviena sukurta užduotis turi turėti:
-// 2.1. Unikalų id (prisideda automatiškai)
-// 2.2. Sukūrimo datą (prisideda automatiškai)
-// 2.3. Pavadinimą
-// 2.4. Aprašymą
-// 2.5. Done (nurodo ar užduotis jau atlikta)
-// 2.6. Data iki kada užduotį reikia atlikti

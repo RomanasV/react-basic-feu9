@@ -1,4 +1,4 @@
-const TodoItem = ({ data, onTodoDone }) => {
+const TodoItem = ({ data, onTodoDone, onTodoRemove }) => {
   const { title, description, date, done, dueDate, id, updatedDate } = data
 
   if (!title) {
@@ -25,6 +25,8 @@ const TodoItem = ({ data, onTodoDone }) => {
 
         <label htmlFor={`todo-${id}`}>{done ? 'Task done' : 'Task is not completed yet'}</label>
       </div>
+
+      <button onClick={() => onTodoRemove(id)}>Remove</button>
     </div>
   )
 }
