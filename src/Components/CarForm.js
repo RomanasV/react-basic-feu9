@@ -1,9 +1,9 @@
 import { v4 as uuid } from 'uuid'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const CarForm = (props) => {
-  const { onNewCar } = props
+  const { onNewCar, editCarData } = props
 
   const engineTypes = ['petrol', 'electric', 'diesel', 'hybrid']
   const defaultEngine = engineTypes[0]
@@ -20,6 +20,26 @@ const CarForm = (props) => {
   const [customColor, setCustomColor] = useState('')
   const [discount, setDiscount] = useState('')
 
+  useEffect(() => {
+    if (editCarData) {
+      const { brand, basePrice, color, engine, image, mileage, model, discount, customColor } = editCarData
+      setBrand(brand)
+      setModel(model)
+      setBasePrice(basePrice)
+      setEngine(engine)
+      setImage(image)
+      setMileage(mileage)
+      setDiscount(discount)
+      
+      if (customColor) {
+        setSelectedColor('other')
+        setCustomColor(color)
+      } else {
+        setSelectedColor(color)
+      }
+    }
+  }, [editCarData])
+
   const colorHandler = (event) => setSelectedColor(event.target.value)
   const customColorHandler = (event) => setCustomColor(event.target.value)
 
@@ -34,8 +54,10 @@ const CarForm = (props) => {
     
     const pickedColor = selectedColor === 'other' ? customColor : selectedColor
 
+    const id = editCarData ? editCarData.id : uuid()
+
     const newCar = {
-      id: uuid(),
+      id,
       brand,
       model,
       engine,
@@ -168,7 +190,7 @@ const CarForm = (props) => {
         />
       </div> 
 
-      <button type="submit">Submit</button>
+      <button type="submit">{editCarData ? 'Edit' : 'New'}</button>
 
     </form>
   )
