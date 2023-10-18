@@ -8,6 +8,7 @@ import PageHeader from './Components/PageHeader/PageHeader'
 import TodoPage from './pages/TodoPage/TodoPage'
 import './App.css'
 import APIChickNorrisPage from './pages/APIChuckNorrisPage/APIChickNorrisPage'
+import DogsPage from './pages/DogsPage/DogsPage'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/code-academy/news' element={<NewsPage />} />
         <Route path='/code-academy/contacts' element={<ContactUsPage />} />
         <Route path='/api/chuck-norris' element={<APIChickNorrisPage />} />
+        <Route path='/api/dogs' element={<DogsPage />} />
 
         <Route path='*' element={<h1>404: Page not found</h1>} />
       </Routes>
