@@ -1,5 +1,5 @@
 const CityItem = (props) => {
-  const { fullWidth } = props
+  const { fullWidth, onCityDelete, index, onCityEdit } = props
   const { name, population, isCapital, touristAttractions, location } = props.data
   const { continent, country } = location
 
@@ -43,6 +43,9 @@ const CityItem = (props) => {
       <h2>{titleElement}</h2>
       <p>{descriptionElement}</p>
       {touristAttractionsElement}
+
+      <button onClick={() => onCityDelete(index)}>Remove</button>
+      <button onClick={() => onCityEdit(index)}>Edit</button>
     </div>
   )
 }

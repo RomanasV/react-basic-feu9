@@ -66,6 +66,7 @@ const TodoPage = () => {
         const newState = [...prevState]
         newState[editIndex] = newTodo
 
+        setEditTodo(null)
         return newState
       })      
     } else {

@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { v4 as uuid } from 'uuid'
 
 const CitiesForm = (props) => {
-  const { onNewCity } = props
+  const { onNewCity, editCityData } = props
   
   const [name, setName] = useState('')
   const [population, setPopulation] = useState(0)
@@ -10,10 +11,24 @@ const CitiesForm = (props) => {
   const [isCapital, setIsCapital] = useState(false)
   const [touristAttractions, setTouristAttractions] = useState([])
 
+  useEffect(() => {
+    if (editCityData) {
+      setName(editCityData.name)
+      setPopulation(editCityData.population)
+      setContinent(editCityData.location.continent)
+      setCountry(editCityData.location.country)
+      setIsCapital(editCityData.isCapital)
+      setTouristAttractions(editCityData.touristAttractions)
+    }
+  }, [editCityData])
+
   const newCityHandler = (event) => {
     event.preventDefault()
 
+    const cityId = editCityData ? editCityData.id : uuid()
+
     const newCity = {
+      id: cityId,
       name,
       population,
       location: {
@@ -39,8 +54,15 @@ const CitiesForm = (props) => {
   const continentInputHandler = event => setContinent(event.target.value)
   const countryInputHandler = event => setCountry(event.target.value)
   const capitalInputHandler = () => setIsCapital(prevState => !prevState)
+  
   const touristAttractionsInputHandler = (event) => {
     const enteredValue = event.target.value
+
+    if (!enteredValue) {
+      setTouristAttractions([])
+      return
+    }
+
     const touristAttractionsArr = enteredValue.split(',')
     const updatedTouristAttractionsArr = touristAttractionsArr.map(location => {
       const trimmedLocation = location.trim()
@@ -123,7 +145,7 @@ const CitiesForm = (props) => {
           </textarea>
         </div>
 
-        <input type="submit" value="Create New City" />
+        <input type="submit" value={editCityData ? 'Edit City' : 'Create New City'} />
       </form>
   )
 }

@@ -39,15 +39,16 @@ const TodoForm = ({ onNewTodo, editData }) => {
       description,
       done,
       dueDate,
-      updatedDate: null,
     }
 
     if (editData) {
       newTodo.id = editData.id
       newTodo.date = editData.date
+      newTodo.updatedDate = fullDate
     } else {
       newTodo.id = uuid()
       newTodo.date = fullDate
+      newTodo.updatedDate = null
     }
 
     onNewTodo(newTodo)
@@ -104,17 +105,9 @@ const TodoForm = ({ onNewTodo, editData }) => {
         />
       </div>
 
-      <input type="submit" value="Create Todo" />
+      <input type="submit" value={editData ? 'Edit' : 'Create'} />
     </form>
   )
 }
 
 export default TodoForm
-
-// 2. Kiekviena sukurta užduotis turi turėti:
-// 2.1. Unikalų id (prisideda automatiškai)
-// 2.2. Sukūrimo datą (prisideda automatiškai)
-// 2.3. Pavadinimą
-// 2.4. Aprašymą
-// 2.5. Done (nurodo ar užduotis jau atlikta)
-// 2.6. Data iki kada užduotį reikia atlikti

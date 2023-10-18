@@ -1,12 +1,14 @@
+import { v4 as uuid } from 'uuid'
 import { useState } from "react";
-import Container from "../Components/Container/Container"
-import CityItem from "../Components/CityItem";
+import Container from "../../Components/Container/Container"
+import CityItem from "../../Components/CityItem";
 import './CitiesPage.css'
-import CitiesForm from "../Components/CitiesForm";
+import CitiesForm from "../../Components/CitiesForm";
 
 const CitiesPage = () => {
   const citiesData = [
     // {
+        // id: uuid(),
     //     name: 'Vilnius',
     //     population: 500000,
     //     location: {
@@ -17,6 +19,7 @@ const CitiesPage = () => {
     //     isCapital: true,
     // },
     {
+        id: uuid(),
         name: 'New York',
         population: 8500000,
         location: {
@@ -27,6 +30,7 @@ const CitiesPage = () => {
         isCapital: false,
     },
     {
+        id: uuid(),
         name: 'Tokyo',
         population: 14000000,
         location: {
@@ -37,6 +41,7 @@ const CitiesPage = () => {
         isCapital: true,
     },
     {
+        id: uuid(),
         name: 'Amsterdam',
         population: 1400000,
         location: {
@@ -47,6 +52,7 @@ const CitiesPage = () => {
         isCapital: true,
     },
     {
+        id: uuid(),
         name: 'Monaco',
         population: 40000,
         location: {
@@ -57,6 +63,7 @@ const CitiesPage = () => {
         isCapital: true,
     },
     {
+        id: uuid(),
         name: 'Havana',
         population: 2400000,
         location: {
@@ -67,6 +74,7 @@ const CitiesPage = () => {
         isCapital: true,
     },
     {
+        id: uuid(),
         name: 'Singapore',
         population: 5600000,
         location: {
@@ -77,6 +85,7 @@ const CitiesPage = () => {
         isCapital: true,
     },
     {
+        id: uuid(),
         name: 'Melbourne',
         population: 5000000,
         location: {
@@ -87,6 +96,7 @@ const CitiesPage = () => {
         isCapital: false,
     },
     {
+        id: uuid(),
         name: 'Sapporo',
         population: 1900000,
         location: {
@@ -97,6 +107,7 @@ const CitiesPage = () => {
         isCapital: false,
     },
     {
+        id: uuid(),
         name: 'Miami',
         population: 400000,
         location: {
@@ -109,18 +120,48 @@ const CitiesPage = () => {
   ];
 
   const [cities, setCities] = useState(citiesData)
+  const [editCity, setEditCity] = useState(null)
+
+  const addCityHandler = newCity => {
+    if (editCity) {
+        setCities(prevState => {
+            const editId = editCity.id
+            const editCityIndex = prevState.findIndex(city => city.id === editId)
+            const newState = [...prevState]
+            newState[editCityIndex] = newCity
+
+            setEditCity(null)
+            return newState
+        })
+    } else {
+        setCities(prevState => [newCity, ...prevState])
+    }
+  }
+
+  const removeCityHandler = index => {
+    setCities(prevState => {
+        // const newState = [...prevState]
+        // newState.splice(index, 1)
+        // return newState
+        
+        return prevState.toSpliced(index, 1)
+    })
+  }
+
+  const editCityHandler = index => {
+    const selectedCity = cities[index]
+    setEditCity(selectedCity)
+  }
 
   const citiesListElement = cities.map((city, index) => {
     const lastOddElement = index + 1 === cities.length && index % 2 === 0
 
-    return <CityItem key={index} data={city} fullWidth={lastOddElement} />
+    return <CityItem onCityEdit={editCityHandler} onCityDelete={removeCityHandler} index={index} key={index} data={city} fullWidth={lastOddElement} />
   })
-
-  const addNewCity = newCity => setCities(prevState => [newCity, ...prevState])
 
   return (
     <Container>
-      <CitiesForm onNewCity={addNewCity} />
+      <CitiesForm editCityData={editCity} onNewCity={addCityHandler} />
 
       <div className="cities-list">
         {citiesListElement}
