@@ -58,6 +58,15 @@ API nuoroda: https://jsonplaceholder.typicode.com
   
 9. Sukurti paieškos funkcionalumą navigacijos elemente:
 9.1. Navigacijos elemente sukurti formą, kuri turi text tipo input elementą (nepamiršti pridėti name atributą).
-9.2. Formos submit metu, naudojant action atributą, nukreipti į naują puslapį (search.html).
+9.2. Formos submit metu, naudojant action atributą, nukreipti į naują puslapį (search).
 9.3. Šiame puslapyje atvaizduoti paieškos rezultatą.
 9.3.1. Jeigu nėra tinkamų rezultatų, tai parašyti jog rezultatų pagal užklausą nerasta.
+
+Papildoma: 
+9.4. Search puslapyje turi būti paieškos forma, kuri veikia neperkraunant puslapio.
+9.5. Search puslapyje sukurtoje paieškos formoje pridėti galimybė ieškoti pagal pasirinktą kategoriją: posts, users, comments, albums, photos.
+
+10. Sukurti pagrindinį puslapį (index). Jame laisva forma turi būti atvaizduoti:
+  1.1. Įrašai (post).
+  1.2. Albumai.
+  1.3. Vartotojai.
