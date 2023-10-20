@@ -17,6 +17,13 @@ API nuoroda: https://jsonplaceholder.typicode.com
   3.4. Viena nuotrauka.
   3.5. Šis elementas turi būti nuoroda.
 
+4. Sukurti navigacijos elementą, kuris nukreips į puslapius:
+  4.1. Home / pagrindinis puslapis.
+  4.2. Users / vartotojų puslapis.
+  4.3. Albums / albumų puslapis.
+  4.4. Posts / pranešimų puslapis.
+  4.5. Pakeisti aktyvaus puslapio nuorodos stilių.
+
 5. Sukurti naują puslapį use, kuriame bus atvaizduojama vartotojo informacija:
   5.1. Pilnas vardas.
   5.2. Vartotojo vardas / nick'as.
@@ -48,3 +55,9 @@ API nuoroda: https://jsonplaceholder.typicode.com
     8.3.2. https://nanogallery2.nanostudio.org/
     8.3.3. https://sachinchoolur.github.io/lightgallery.js/
     8.3.4. Arba bet kurią kitą.
+  
+9. Sukurti paieškos funkcionalumą navigacijos elemente:
+9.1. Navigacijos elemente sukurti formą, kuri turi text tipo input elementą (nepamiršti pridėti name atributą).
+9.2. Formos submit metu, naudojant action atributą, nukreipti į naują puslapį (search.html).
+9.3. Šiame puslapyje atvaizduoti paieškos rezultatą.
+9.3.1. Jeigu nėra tinkamų rezultatų, tai parašyti jog rezultatų pagal užklausą nerasta.
