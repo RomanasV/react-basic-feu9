@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Container from "../../../Components/Container/Container"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 const PostPage = () => {
   const { id } = useParams()
@@ -18,9 +18,20 @@ const PostPage = () => {
     fetchPost()
   }, [id])
 
+  if (!post) {
+    return ''
+  }
+
+  post.comments.map(comment => {
+    // console.log(comment)
+  })
+
+  console.log(post.user.name)
+
   return (
     <Container>
-      <h1>{post ? post.title : 'Loading...'}</h1>
+      <h1>{post.title}</h1>
+      <span>Author: <Link to={`/api-project/users/${post.user.id}`}>{post.user.name}</Link></span>
     </Container>
   )
 }

@@ -12,6 +12,10 @@ import DogsPage from './pages/DogsPage/DogsPage'
 import AIPage from './pages/AIPage/AIPage'
 import PostsPage from './pages/api-project/PostsPage/PostsPage'
 import PostPage from './pages/api-project/PostPage/PostPage'
+import UserPage from './pages/api-project/UserPage/UserPage'
+import AlbumPage from './pages/api-project/AlbumPage/AlbumPage'
+import UsersPage from './pages/api-project/UsersPage/UsersPage'
+import AlbumsPage from './pages/api-project/AlbumsPage/AlbumsPage'
 
 function App() {
   return (
@@ -41,12 +45,13 @@ function App() {
             </div>
           </div>
         } />
+        
         <Route path='/api-project/posts' element={<PostsPage />} />
-        <Route path='/api-project/albums' element={<h1>Albums page:</h1>} />
-        <Route path='/api-project/users' element={<h1>Users page:</h1>} />
+        <Route path='/api-project/albums' element={<AlbumsPage />} />
+        <Route path='/api-project/users' element={<UsersPage />} />
         <Route path='/api-project/posts/:id' element={<PostPage />} />
-        <Route path='/api-project/albums/1' element={<h1>Single album page:</h1>} />
-        <Route path='/api-project/users/1' element={<h1>Single user page:</h1>} />
+        <Route path='/api-project/albums/:id' element={<AlbumPage />} />
+        <Route path='/api-project/users/:id' element={<UserPage />} />
 
         <Route path='*' element={<h1>404: Page not found</h1>} />
       </Routes>

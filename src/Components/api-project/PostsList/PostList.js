@@ -14,6 +14,7 @@ const PostList = ({ posts }) => {
 
   return (
     <div>
+      <h2>Posts:</h2>
       {postsElement}
     </div>
   )
