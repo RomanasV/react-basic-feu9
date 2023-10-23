@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import Container from "../../../Components/Container/Container"
 import { Link } from "react-router-dom"
+import { API_URL } from "../../../config"
 
 const UsersPage = () => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/users`)
+      const res = await fetch(`${API_URL}/users`)
       const usersData = await res.json()
 
       setUsers(usersData)

@@ -15,7 +15,7 @@ const PostItem = (props) => {
 
   return (
     <li>
-      <Link to={`/api-project/posts/${id}`}>{title}{postExtraInfo}</Link>
+      <Link to={`/api-project/posts/${id}`}>{id}. {title}{postExtraInfo}</Link>
     </li>
   )
 }

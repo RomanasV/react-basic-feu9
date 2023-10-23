@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Container from '../../../Components/Container/Container'
 import PostList from '../../../Components/api-project/PostsList/PostList'
 import AlbumsList from '../../../Components/api-project/AlbumsList/AlbumsList'
+import { API_URL } from '../../../config'
 
 const UserPage = () => {
   const { id } = useParams()
@@ -11,7 +12,7 @@ const UserPage = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}?_embed=posts&_embed=albums`)
+      const res = await fetch(`${API_URL}/users/${id}?_embed=posts&_embed=albums`)
       const userData = await res.json()
 
       setUser(userData)

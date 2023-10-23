@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Container from '../../../Components/Container/Container'
+import { API_URL } from '../../../config'
 
 const CreatePostPage = () => {
   const [title, setTitle] = useState('')
@@ -9,7 +10,7 @@ const CreatePostPage = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await fetch('https://jsonplaceholder.typicode.com/users')
+      const res = await fetch(`${API_URL}/users`)
       const usersData = await res.json()
       const firstUserId = usersData[0].id
 
@@ -34,7 +35,7 @@ const CreatePostPage = () => {
       userId: Number(selectedUser),
     }
 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    fetch(`${API_URL}/posts`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',

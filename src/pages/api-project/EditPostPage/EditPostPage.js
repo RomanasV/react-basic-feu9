@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Container from '../../../Components/Container/Container'
+import { API_URL } from '../../../config'
 
 const EditPostPage = () => {
   const { id } = useParams()
@@ -12,7 +13,7 @@ const EditPostPage = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await fetch('https://jsonplaceholder.typicode.com/posts/' + id)
+      const res = await fetch(API_URL + '/posts/' + id)
       const postData = await res.json()
 
       const { title, body, userId } = postData
@@ -27,7 +28,7 @@ const EditPostPage = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await fetch('https://jsonplaceholder.typicode.com/users')
+      const res = await fetch(API_URL + '/users')
       const usersData = await res.json()
       const firstUserId = usersData[0].id
 
@@ -53,7 +54,7 @@ const EditPostPage = () => {
       userId: Number(selectedUser),
     }
 
-    fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
+    fetch(API_URL + '/posts/' + id, {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
