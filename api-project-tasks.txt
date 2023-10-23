@@ -81,6 +81,25 @@ Papildoma:
 10.2.1. Iš formos duomenų suformuluoti objektą pagal API reikalavimus.
 10.2.2. Su šiais duomenimis išsiųsti POST užklausą pagal API reikalavimus.
 
+11.1. Prie kiekvieno post'o pridėti nuorodą.
+11.1.1. Nuorodos tekstas: „Redaguoti" arba bet koks kitas jūsų pasirinktas.
+11.1.2. Nuoroda turi nuvestį į edit-post puslapį.
+11.1.3. Nuoroda turi perduoti redaguojamo post'o ID.
+
+11.2. Sukurti puslapį edit-post
+11.2.1. Iš nuorodos išimti post'o ID.
+11.2.2. Iš API gauti visą post'o informaciją pagal post'o ID.
+
+11.3. Puslapyje sukurti formą. Ji turės:
+11.3.1. Input elementą posto pavadinimui įvesti.
+11.3.2. Textarea elementą posto turiniui įvesti.
+11.3.3. Select elementą, kuriame būtų atvaizduojami visų vartotojų vardai (option elementų value naudoti vartotojų id).
+11.3.4. Iš API gautais duomenimis (11.2.2. užduotis) užpildyti formą.
+
+11.4. Formos submit metu:
+11.4.1. Iš formos duomenų suformuluoti objektą pagal API reikalavimus.
+11.4.2. Su šiais duomenimis išsiųsti PUT užklausą pagal API reikalavimus.
+
 
 CREATE (post):
 1. User
