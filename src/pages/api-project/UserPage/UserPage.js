@@ -28,11 +28,19 @@ const UserPage = () => {
     )
   }
 
-  const { name, albums, posts } = user
+  const { name, albums, posts, username, email, phone, website } = user
 
   return (
     <Container>
-      <h1>{name}</h1>
+      <div className='user-info'>
+        <h1>{name} ({username})</h1>
+        <h2>Contacts:</h2>
+        <ul>
+          <li>Email: <a href={`mailto:${email}`}>{email}</a></li>
+          <li>Phone: <a href={`tel:${phone}`}>{phone}</a></li>
+          <li>Website: <a href={website} target='_blank' rel="noreferrer">{website}</a></li>
+        </ul>
+      </div>
 
       <PostList posts={posts} />
 

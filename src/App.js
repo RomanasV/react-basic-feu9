@@ -16,6 +16,8 @@ import UserPage from './pages/api-project/UserPage/UserPage'
 import AlbumPage from './pages/api-project/AlbumPage/AlbumPage'
 import UsersPage from './pages/api-project/UsersPage/UsersPage'
 import AlbumsPage from './pages/api-project/AlbumsPage/AlbumsPage'
+import CreatePostPage from './pages/api-project/CreatePostPage/CreatePostPage'
+import EditPostPage from './pages/api-project/EditPostPage/EditPostPage'
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
         <Route path='/api-project/albums' element={<AlbumsPage />} />
         <Route path='/api-project/users' element={<UsersPage />} />
         <Route path='/api-project/posts/:id' element={<PostPage />} />
+        <Route path='/api-project/create-post' element={<CreatePostPage />} />
+        <Route path='/api-project/edit-post/:id' element={<EditPostPage />} />
         <Route path='/api-project/albums/:id' element={<AlbumPage />} />
         <Route path='/api-project/users/:id' element={<UserPage />} />
 

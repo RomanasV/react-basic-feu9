@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Container from "../../../Components/Container/Container"
 import PostList from "../../../Components/api-project/PostsList/PostList"
+import { Link } from "react-router-dom"
 
 const PostsPage = () => {
   const [posts, setPosts] = useState([])
@@ -24,6 +25,8 @@ const PostsPage = () => {
 
   return (
     <Container>
+      <Link to='/api-project/create-post'>Create New Post</Link>
+      
       <h1>Posts Page</h1>
 
       <PostList posts={posts} />
