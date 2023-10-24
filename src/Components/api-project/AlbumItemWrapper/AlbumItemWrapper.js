@@ -14,7 +14,7 @@ const AlbumItemWrapper = ({ data }) => {
   return (
     <div className="album-item" key={id}>
       <Link to={`/api-project/albums/${id}`}>
-        <h3>{title} ({photos.length})</h3>
+        <h3>{id}. {title} ({photos.length})</h3>
         <span>Created by: {user.name}</span>
         {image}
       </Link>

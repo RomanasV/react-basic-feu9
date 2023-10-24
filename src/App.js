@@ -18,6 +18,7 @@ import UsersPage from './pages/api-project/UsersPage/UsersPage'
 import AlbumsPage from './pages/api-project/AlbumsPage/AlbumsPage'
 import CreatePostPage from './pages/api-project/CreatePostPage/CreatePostPage'
 import EditPostPage from './pages/api-project/EditPostPage/EditPostPage'
+import CreateAlbumPage from './pages/api-project/CreateAlbumPage/CreateAlbumPage'
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route path='/api-project/create-post' element={<CreatePostPage />} />
         <Route path='/api-project/edit-post/:id' element={<EditPostPage />} />
         <Route path='/api-project/albums/:id' element={<AlbumPage />} />
+        <Route path='/api-project/create-album' element={<CreateAlbumPage />} />
         <Route path='/api-project/users/:id' element={<UserPage />} />
 
         <Route path='*' element={<h1>404: Page not found</h1>} />

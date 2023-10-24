@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Container from "../../../Components/Container/Container"
 import { API_URL } from "../../../config"
+import axios from "axios"
 
 const AlbumPage = () => {
   const { id } = useParams()
+  const navigate = useNavigate()
 
   const [album, setAlbum] = useState(null)
 
@@ -26,9 +28,20 @@ const AlbumPage = () => {
   const { photos } = album
   const { name } = album.user
 
+  const removeAlbumHandler = async () => {
+    // axios.delete(API_URL + '/albums/' + id)
+    //   .then(res => console.log(res))
+    
+    const res = await axios.delete(API_URL + '/albums/' + id)
+    console.log(res)
+
+    navigate('/api-project/albums')
+  }
+
   return (
     <Container>
-      <h1>{album.title}</h1>
+      <button onClick={removeAlbumHandler}>Delete Album</button>
+      <h1>{album.id}. {album.title}</h1>
       <span>Album created by: <Link to={`/api-project/users/${album.user.id}`}>{name}</Link></span>
 
       <div className="photos-list">
