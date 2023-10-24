@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Container from "../../../Components/Container/Container"
 import { Link, useParams } from "react-router-dom"
 import { API_URL } from "../../../config"
+import { ThreeDots } from "react-loader-spinner"
 
 const PostPage = () => {
   const { id } = useParams()
@@ -21,7 +22,18 @@ const PostPage = () => {
   }, [id])
 
   if (!post) {
-    return ''
+    return (
+      <ThreeDots 
+        wrapperStyle={{
+          display: 'flex',
+          justifyContent: 'center'
+        }}
+      />
+    )
+  }
+
+  if (Object.keys(post).length === 0) {
+    return <h1>Something went wrong...</h1>
   }
 
   const { title, body, comments } = post

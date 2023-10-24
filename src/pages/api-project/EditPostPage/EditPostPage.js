@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Container from '../../../Components/Container/Container'
 import { API_URL } from '../../../config'
+import { ThreeDots } from 'react-loader-spinner'
 
 const EditPostPage = () => {
   const { id } = useParams()
+  const navigate = useNavigate()
 
+  const [isLoading, setIsLoading] = useState(true)
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   const [selectedUser, setSelectedUser] = useState('')
@@ -24,7 +27,7 @@ const EditPostPage = () => {
     }
 
     fetchPost()
-  }, [])
+  }, [id])
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -34,6 +37,7 @@ const EditPostPage = () => {
 
       setUsers(usersData)
       setSelectedUser(firstUserId)
+      setIsLoading(false)
     }
 
     fetchUsers()
@@ -44,10 +48,11 @@ const EditPostPage = () => {
   const bodyHandler = event => setBody(event.target.value)
   const userHandler = event => setSelectedUser(event.target.value)
 
-  const newPostHandler = event => {
+  const editPostHandler = event => {
     event.preventDefault()
+    setIsLoading(true)
 
-    const newPost = {
+    const editedPost = {
       id: Number(id),
       title,
       body,
@@ -59,11 +64,11 @@ const EditPostPage = () => {
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
-      body: JSON.stringify(newPost)
+      body: JSON.stringify(editedPost)
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        navigate('/api-project/posts/' + id)
       })
   }
 
@@ -71,8 +76,10 @@ const EditPostPage = () => {
     <Container>
       <h1>Edit Post</h1>
 
-      {users.length > 0 ? (
-        <form onSubmit={newPostHandler}>
+      {isLoading ? (
+        <ThreeDots wrapperStyle={{ display: 'flex', justifyContent: 'center'}} />
+      ) : (
+        <form onSubmit={editPostHandler}>
           <div className='form-control'>
             <label htmlFor='title'>Title:</label>
             <input 
@@ -102,8 +109,6 @@ const EditPostPage = () => {
 
           <button type='submit'>Edit</button>
         </form>
-      ) : (
-        <p>Loading...</p>
       )}
     </Container>
   )
