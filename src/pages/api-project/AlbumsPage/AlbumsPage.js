@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import Container from "../../../Components/Container/Container"
 import { Link } from "react-router-dom"
 import AlbumItemWrapper from "../../../Components/api-project/AlbumItemWrapper/AlbumItemWrapper"
+import { API_URL } from "../../../config"
 
 const AlbumsPage = () => {
   const [albums, setAlbums] = useState([])
 
   useEffect(() => {
     const fetchAlbums = async () => {
-      const res = await fetch('https://jsonplaceholder.typicode.com/albums?_limit=15&_expand=user&_embed=photos')
+      const res = await fetch(API_URL + '/albums?_limit=15&_expand=user&_embed=photos')
       const albumsData = await res.json()
 
       setAlbums(albumsData)

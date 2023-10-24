@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import Container from "../../../Components/Container/Container"
+import { API_URL } from "../../../config"
 
 const AlbumPage = () => {
   const { id } = useParams()
@@ -9,7 +10,7 @@ const AlbumPage = () => {
 
   useEffect(() => {
     const fetchAlbum = async () => {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/albums/${id}?_expand=user&_embed=photos`)
+      const res = await fetch(`${API_URL}/albums/${id}?_expand=user&_embed=photos`)
       const albumData = await res.json()
 
       setAlbum(albumData)

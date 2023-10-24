@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom"
 
 const AlbumItemWrapper = ({ data }) => {
-  console.log(data)
   const { id, photos, user, title } = data
 
   const randomIndex = Math.floor(Math.random() * photos.length)
   const randomImage = photos[randomIndex]
-
+  
   const thumbnailUrl = randomImage.thumbnailUrl
   const imageTitle = randomImage.title
 
