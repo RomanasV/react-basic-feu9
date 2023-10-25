@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Container from '../../../Components/Container/Container'
 import { API_URL } from '../../../config'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const CreatePostPage = () => {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   const [selectedUser, setSelectedUser] = useState('')
   const [users, setUsers] = useState([])
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -26,7 +30,7 @@ const CreatePostPage = () => {
   const bodyHandler = event => setBody(event.target.value)
   const userHandler = event => setSelectedUser(event.target.value)
 
-  const newPostHandler = event => {
+  const newPostHandler = async event => {
     event.preventDefault()
 
     const newPost = {
@@ -35,17 +39,25 @@ const CreatePostPage = () => {
       userId: Number(selectedUser),
     }
 
-    fetch(`${API_URL}/posts`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-      body: JSON.stringify(newPost)
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-      })
+    // fetch(`${API_URL}/posts`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-type': 'application/json; charset=UTF-8',
+    //   },
+    //   body: JSON.stringify(newPost)
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data)
+    //   })
+
+    const res = await axios.post(`${API_URL}/posts`, newPost)
+
+    if (res.statusText === 'Created') {
+      navigate('/api-project/posts/' + res.data.id)
+    } else {
+      console.error('Something went wrong...')
+    }
   }
 
   return (
