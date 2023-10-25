@@ -4221,13 +4221,6 @@
     },
     {
       "postId": 8,
-      "name": "sdfsdf",
-      "email": "sdfsdf@adasd.asdad",
-      "body": "sfddfgdf",
-      "id": 502
-    },
-    {
-      "postId": 8,
       "name": "fdfgdfg",
       "email": "fgh@ads.fsdf",
       "body": "sdfsdf",
@@ -4242,52 +4235,10 @@
     },
     {
       "postId": 8,
-      "name": "test",
-      "email": "test@test.test",
-      "body": "dasdasd",
-      "id": 505
-    },
-    {
-      "postId": 8,
-      "name": "fsdfsd",
-      "email": "fsdfsdf@asda.asd",
-      "body": "fgsdfgdfg",
-      "id": 506
-    },
-    {
-      "postId": 8,
       "name": "fsdfsd",
       "email": "fsdfsdf@asda.asd",
       "body": "fgsdfgdfg",
       "id": 507
-    },
-    {
-      "postId": 8,
-      "name": "gggggggggg",
-      "email": "asd@asd.asd",
-      "body": "fsddsfg",
-      "id": 508
-    },
-    {
-      "postId": 8,
-      "name": "aaaaaa",
-      "email": "asd@asd.asd",
-      "body": "asdad",
-      "id": 509
-    },
-    {
-      "postId": 8,
-      "name": "fsdfsd",
-      "email": "dfgdfg@asd.asd",
-      "body": "fsdf",
-      "id": 510
-    },
-    {
-      "postId": 8,
-      "name": "fsdfsd",
-      "email": "dfgdfg@asd.asd",
-      "body": "fsdf",
-      "id": 511
     }
   ],
   "albums": [
