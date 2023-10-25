@@ -3,6 +3,7 @@ import Container from '../../../Components/Container/Container'
 import { API_URL } from '../../../config'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const CreatePostPage = () => {
   const [title, setTitle] = useState('')
@@ -55,6 +56,7 @@ const CreatePostPage = () => {
 
     if (res.statusText === 'Created') {
       navigate('/api-project/posts/' + res.data.id)
+      toast.success(`Post was created (${res.data.title})`)
     } else {
       console.error('Something went wrong...')
     }

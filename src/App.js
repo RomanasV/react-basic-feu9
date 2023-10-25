@@ -19,6 +19,9 @@ import AlbumsPage from './pages/api-project/AlbumsPage/AlbumsPage'
 import CreatePostPage from './pages/api-project/CreatePostPage/CreatePostPage'
 import EditPostPage from './pages/api-project/EditPostPage/EditPostPage'
 import CreateAlbumPage from './pages/api-project/CreateAlbumPage/CreateAlbumPage'
+import MainPage from './pages/api-project/MainPage'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   return (
@@ -37,17 +40,7 @@ function App() {
         <Route path='/api/dogs' element={<DogsPage />} />
         <Route path='/api/ai' element={<AIPage />} />
 
-        <Route path='/api-project' element={
-          <div>
-            <h1>Home page:</h1>
-            <div>
-              <Link to='/api-project/posts'>Posts</Link>
-            </div>
-            <div>
-              <a href='/api-project/posts'>Posts</a>
-            </div>
-          </div>
-        } />
+        <Route path='/api-project' element={<MainPage />} />
         
         <Route path='/api-project/posts' element={<PostsPage />} />
         <Route path='/api-project/albums' element={<AlbumsPage />} />
@@ -61,6 +54,8 @@ function App() {
 
         <Route path='*' element={<h1>404: Page not found</h1>} />
       </Routes>
+
+      <ToastContainer position="bottom-right" />
     </div>
   )
 }

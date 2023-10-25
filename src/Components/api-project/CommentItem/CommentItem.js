@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { API_URL } from '../../../config'
+import { toast } from 'react-toastify'
 
 const CommentItem = ({ data, onRemoveComment }) => {
   const { name, email, body, id } = data
@@ -10,8 +11,10 @@ const CommentItem = ({ data, onRemoveComment }) => {
 
     if (res.statusText === 'OK') {
       onRemoveComment(id)
+      toast.info(`Comment (id ${id}) was removed.`)
     } else {
       console.error('Something went wrong...')
+      toast.error('Something went wrong...')
     }
   }
 

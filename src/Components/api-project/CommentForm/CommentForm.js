@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { API_URL } from '../../../config'
+import { toast } from 'react-toastify'
 
 const CommentForm = ({ onNewComment, postId }) => {
   const [titleInput, setTitleInput] = useState('')
@@ -27,6 +28,8 @@ const CommentForm = ({ onNewComment, postId }) => {
     setTitleInput('')
     setEmailInput('')
     setContentInput('')
+
+    toast.success('Comment created')
   }
 
   return (

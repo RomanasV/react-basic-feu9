@@ -617,6 +617,18 @@
       "body": "fghfgh",
       "userId": 4,
       "id": 107
+    },
+    {
+      "title": "asdasd",
+      "body": "asdasd",
+      "userId": 1,
+      "id": 108
+    },
+    {
+      "title": "Naujas postas",
+      "body": "dasdasd",
+      "userId": 5,
+      "id": 109
     }
   ],
   "users": [
@@ -1117,13 +1129,6 @@
       "name": "maiores alias necessitatibus aut non",
       "email": "Laverne_Price@scotty.info",
       "body": "a at tempore\nmolestiae odit qui dolores molestias dolorem et\nlaboriosam repudiandae placeat quisquam\nautem aperiam consectetur maiores laboriosam nostrum"
-    },
-    {
-      "postId": 11,
-      "id": 54,
-      "name": "culpa eius tempora sit consequatur neque iure deserunt",
-      "email": "Kenton_Vandervort@friedrich.com",
-      "body": "et ipsa rem ullam cum pariatur similique quia\ncum ipsam est sed aut inventore\nprovident sequi commodi enim inventore assumenda aut aut\ntempora possimus soluta quia consequatur modi illo"
     },
     {
       "postId": 11,
@@ -4214,13 +4219,6 @@
     },
     {
       "postId": 8,
-      "name": "sdfsdf",
-      "email": "sdfsdf@adasd.asdad",
-      "body": "sdfsdf",
-      "id": 501
-    },
-    {
-      "postId": 8,
       "name": "fdfgdfg",
       "email": "fgh@ads.fsdf",
       "body": "sdfsdf",
@@ -4239,6 +4237,34 @@
       "email": "fsdfsdf@asda.asd",
       "body": "fgsdfgdfg",
       "id": 507
+    },
+    {
+      "postId": 8,
+      "name": "sdfsdf",
+      "email": "asd@asd.asd",
+      "body": "asdasd",
+      "id": 508
+    },
+    {
+      "postId": 12,
+      "name": "adfsdfs",
+      "email": "sdfsdf@asd.asd",
+      "body": "sdfsdf",
+      "id": 509
+    },
+    {
+      "postId": 12,
+      "name": "sdfsdf",
+      "email": "sdfsdf@adasd.asdad",
+      "body": "fsdf",
+      "id": 510
+    },
+    {
+      "postId": 108,
+      "name": "asdasd",
+      "email": "asda@ads.asd",
+      "body": "asd",
+      "id": 511
     }
   ],
   "albums": [
