@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom"
 import { API_URL } from "../../../config"
 import { ThreeDots } from "react-loader-spinner"
 import CommentsList from "../../../Components/api-project/CommentsList/CommentsList"
+import { toast } from "react-toastify"
 
 const PostPage = () => {
   const { id } = useParams()
@@ -44,6 +45,7 @@ const PostPage = () => {
     })
 
     setPostDeleted(true)
+    toast.error('Post Deleted')
   }
 
   return (

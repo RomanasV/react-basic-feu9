@@ -37,7 +37,7 @@ const AlbumsPage = () => {
       // const res = await axios(API_URL + '/albums?_limit=15&_expand=user&_embed=photos')
       // setAlbums(res.data)
 
-      const { data } = await axios(API_URL + '/albums?_limit=15&_expand=user&_embed=photos')
+      const { data } = await axios(API_URL + '/albums?_limit=15&_expand=user&_embed=photos&_sort=id&_order=desc')
       setAlbums(data)
     }
 

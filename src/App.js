@@ -22,6 +22,7 @@ import CreateAlbumPage from './pages/api-project/CreateAlbumPage/CreateAlbumPage
 import MainPage from './pages/api-project/MainPage'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css';
+import EditAlbumPage from './pages/api-project/EditAlbumPage/EditAlbumPage'
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path='/api-project/edit-post/:id' element={<EditPostPage />} />
         <Route path='/api-project/albums/:id' element={<AlbumPage />} />
         <Route path='/api-project/create-album' element={<CreateAlbumPage />} />
+        <Route path='/api-project/edit-album/:id' element={<EditAlbumPage />} />
         <Route path='/api-project/users/:id' element={<UserPage />} />
 
         <Route path='*' element={<h1>404: Page not found</h1>} />

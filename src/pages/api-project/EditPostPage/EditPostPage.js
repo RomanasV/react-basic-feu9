@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Container from '../../../Components/Container/Container'
 import { API_URL } from '../../../config'
 import { ThreeDots } from 'react-loader-spinner'
+import { toast } from 'react-toastify'
 
 const EditPostPage = () => {
   const { id } = useParams()
@@ -69,6 +70,7 @@ const EditPostPage = () => {
       .then(res => res.json())
       .then(data => {
         navigate('/api-project/posts/' + id)
+        toast.success('Post Edited')
       })
   }
 
