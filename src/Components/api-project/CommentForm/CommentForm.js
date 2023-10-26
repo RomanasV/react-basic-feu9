@@ -1,18 +1,26 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { API_URL } from '../../../config'
 import { toast } from 'react-toastify'
 
-const CommentForm = ({ onNewComment, postId }) => {
+const CommentForm = ({ onNewComment, postId, editComment, onEditComment }) => {
   const [titleInput, setTitleInput] = useState('')
   const [emailInput, setEmailInput] = useState('')
   const [contentInput, setContentInput] = useState('')
+
+  useEffect(() => {
+    if (editComment) {
+      setTitleInput(editComment.name)
+      setEmailInput(editComment.email)
+      setContentInput(editComment.body)
+    }
+  }, [editComment])
 
   const titleHandler = event => setTitleInput(event.target.value)
   const emailHandler = event => setEmailInput(event.target.value)
   const contentHandler = event => setContentInput(event.target.value)
 
-  const newCommentHandler = async event => {
+  const commentFormHandler = async event => {
     event.preventDefault()
 
     const newComment = {
@@ -22,20 +30,25 @@ const CommentForm = ({ onNewComment, postId }) => {
       body: contentInput
     }
 
-    const { data } = await axios.post(`${API_URL}/comments`, newComment)
-    onNewComment(data)
+    if (editComment) {
+      const { data } = await axios.put(`${API_URL}/comments/${editComment.id}`, newComment)
+      onEditComment(data)
+      toast.success('Comment edited')
+    } else {
+      const { data } = await axios.post(`${API_URL}/comments`, newComment)
+      onNewComment(data)
+      toast.success('Comment created')
+    }
 
     setTitleInput('')
     setEmailInput('')
     setContentInput('')
-
-    toast.success('Comment created')
   }
 
   return (
     <div>
       <h3>Write a comment</h3>
-      <form onSubmit={newCommentHandler}>
+      <form onSubmit={commentFormHandler}>
         <div className="form-control">
           <label htmlFor="comment-title">Title</label>
           <input 
@@ -68,7 +81,7 @@ const CommentForm = ({ onNewComment, postId }) => {
           />
         </div>
 
-        <button type="submit">Add Comment</button>
+        <button type="submit">{editComment ? 'Edit Comment' : 'Add Comment'}</button>
       </form>
     </div>
   )

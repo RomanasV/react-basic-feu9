@@ -6,6 +6,7 @@ import CommentForm from "../CommentForm/CommentForm"
 
 const CommentsList = ({ postId }) => {
   const [comments, setComments] = useState([])
+  const [editComment, setEditComment] = useState(null)
 
   useEffect(() => {
     const getComments = async () => {
@@ -26,12 +27,26 @@ const CommentsList = ({ postId }) => {
       return newState
     })
   }
+
+  const onEditCommentHandler = (data) => {
+    setComments(prevState => {
+      const editCommentIndex = comments.findIndex(comment => comment.id === data.id)
+      const newState = [...prevState]
+      newState[editCommentIndex] = data
+      
+      return newState
+    })
+
+    setEditComment(null)
+  }
+
+  const editCommentHandler = data => setEditComment(data)
   
-  const commentItems = comments.map(comment => <CommentItem onRemoveComment={removeCommentHandler} key={comment.id} data={comment} />)
+  const commentItems = comments.map(comment => <CommentItem onEditComment={editCommentHandler} onRemoveComment={removeCommentHandler} key={comment.id} data={comment} />)
   
   return (
     <section className="comments-section">
-      <CommentForm postId={postId} onNewComment={newCommentHandler} />
+      <CommentForm editComment={editComment} onEditComment={onEditCommentHandler} postId={postId} onNewComment={newCommentHandler} />
 
       <div className="comments-list">
         {commentItems}

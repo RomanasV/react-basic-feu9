@@ -3,7 +3,7 @@ import React from 'react'
 import { API_URL } from '../../../config'
 import { toast } from 'react-toastify'
 
-const CommentItem = ({ data, onRemoveComment }) => {
+const CommentItem = ({ data, onRemoveComment, onEditComment }) => {
   const { name, email, body, id } = data
   
   const removeHandler = async () => {
@@ -18,12 +18,17 @@ const CommentItem = ({ data, onRemoveComment }) => {
     }
   }
 
+  const editHandler = () => {
+    onEditComment(data)
+  }
+
   return (
     <div className="comment-item">
       <h3 className="comment-title">{id}. {name}</h3>
       <span className="comment-email">Written by: {email}</span>
       <p className="comment-body">{body}</p>
       <button onClick={removeHandler}>Remove</button>
+      <button onClick={editHandler}>Edit</button>
     </div>
   )
 }
