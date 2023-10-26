@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { v4 as uuid } from 'uuid'
 
 const CitiesForm = (props) => {
   const { onNewCity, editCityData } = props
@@ -25,10 +24,7 @@ const CitiesForm = (props) => {
   const newCityHandler = (event) => {
     event.preventDefault()
 
-    const cityId = editCityData ? editCityData.id : uuid()
-
     const newCity = {
-      id: cityId,
       name,
       population,
       location: {
