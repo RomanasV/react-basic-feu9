@@ -1,0 +1,27 @@
+.photos-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album-image-wrapper {
+  position: relative;
+}
+
+.album-image {
+  height: 160px;
+  width: 160px;
+  object-fit: cover;
+}
+
+.album-image-delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  border: 2px solid red;
+  color: red;
+  background: white;
+  cursor: pointer;
+}

@@ -4,6 +4,7 @@ import Container from "../../../Components/Container/Container"
 import { API_URL } from "../../../config"
 import axios from "axios"
 import { toast } from "react-toastify"
+import './AlbumPage.css'
 
 const AlbumPage = () => {
   const { id } = useParams()
@@ -73,6 +74,14 @@ const AlbumPage = () => {
     setThumbnailUrl('')
   }
 
+  const removeImageHandler = (id) => {
+    axios.delete(`${API_URL}/photos/${id}`)
+
+    setPhotos(prevState => prevState.filter(photo => photo.id !== id))
+
+    toast.error('Photo removed')
+  }
+
   return (
     <Container>
       <Link to={`/api-project/edit-album/${id}`}>Edit Album</Link>
@@ -123,7 +132,18 @@ const AlbumPage = () => {
 
       <div className="photos-list">
         {photos.length > 0 ? (
-          photos.map(photo => <img src={photo.thumbnailUrl} alt={photo.title} key={photo.id} /> )
+          photos.map(photo => (
+              <div key={photo.id} className="album-image-wrapper">
+                <img 
+                  className="album-image" 
+                  // style={{width: '160px', height: '160px', objectFit: 'cover'}} 
+                  src={photo.thumbnailUrl} 
+                  alt={photo.title} 
+                />
+                <button onClick={() => removeImageHandler(photo.id)} className="album-image-delete-button">X</button>
+              </div> 
+            ) 
+          )
         ) : (
           <h2>No photos in the album yet</h2>
         )}
