@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { API_URL } from "../../../config"
 import CommentItem from "../CommentItem/CommentItem"
 import CommentForm from "../CommentForm/CommentForm"
+import { toast } from "react-toastify"
 
 const CommentsList = ({ postId }) => {
   const [comments, setComments] = useState([])
@@ -17,10 +18,6 @@ const CommentsList = ({ postId }) => {
     getComments()
   }, [postId])
   
-  const newCommentHandler = newComment => {
-    setComments(prevState => [newComment, ...prevState])
-  }
-  
   const removeCommentHandler = commentId => {
     setComments(prevState => {
       const newState = prevState.filter(item => item.id !== commentId)
@@ -28,16 +25,27 @@ const CommentsList = ({ postId }) => {
     })
   }
 
-  const onEditCommentHandler = (data) => {
-    setComments(prevState => {
-      const editCommentIndex = comments.findIndex(comment => comment.id === data.id)
-      const newState = [...prevState]
-      newState[editCommentIndex] = data
-      
-      return newState
-    })
+  const commentHandler = async commentData => {
+    if (editComment) {
+      const { data } = await axios.put(`${API_URL}/comments/${editComment.id}`, commentData)
 
-    setEditComment(null)
+      setComments(prevState => {
+        const editCommentIndex = comments.findIndex(comment => comment.id === data.id)
+        const newState = [...prevState]
+        newState[editCommentIndex] = data
+        
+        return newState
+      })
+
+      setEditComment(null)
+
+      toast.success('Comment edited')
+    } else {
+      const { data } = await axios.post(`${API_URL}/comments`, commentData)
+      setComments(prevState => [data, ...prevState])
+
+      toast.success('Comment created')
+    }
   }
 
   const editCommentHandler = data => setEditComment(data)
@@ -46,7 +54,7 @@ const CommentsList = ({ postId }) => {
   
   return (
     <section className="comments-section">
-      <CommentForm editComment={editComment} onEditComment={onEditCommentHandler} postId={postId} onNewComment={newCommentHandler} />
+      <CommentForm onComment={commentHandler} editComment={editComment} postId={postId} />
 
       <div className="comments-list">
         {commentItems}

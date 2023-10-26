@@ -1,9 +1,6 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { API_URL } from '../../../config'
-import { toast } from 'react-toastify'
 
-const CommentForm = ({ onNewComment, postId, editComment, onEditComment }) => {
+const CommentForm = ({ postId, editComment, onComment }) => {
   const [titleInput, setTitleInput] = useState('')
   const [emailInput, setEmailInput] = useState('')
   const [contentInput, setContentInput] = useState('')
@@ -23,22 +20,14 @@ const CommentForm = ({ onNewComment, postId, editComment, onEditComment }) => {
   const commentFormHandler = async event => {
     event.preventDefault()
 
-    const newComment = {
+    const commentData = {
       postId: Number(postId),
       name: titleInput,
       email: emailInput,
       body: contentInput
     }
 
-    if (editComment) {
-      const { data } = await axios.put(`${API_URL}/comments/${editComment.id}`, newComment)
-      onEditComment(data)
-      toast.success('Comment edited')
-    } else {
-      const { data } = await axios.post(`${API_URL}/comments`, newComment)
-      onNewComment(data)
-      toast.success('Comment created')
-    }
+    onComment(commentData)
 
     setTitleInput('')
     setEmailInput('')
