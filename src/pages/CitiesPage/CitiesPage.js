@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid'
 import { useEffect, useState } from "react";
 import Container from "../../Components/Container/Container"
 import CityItem from "../../Components/CityItem";

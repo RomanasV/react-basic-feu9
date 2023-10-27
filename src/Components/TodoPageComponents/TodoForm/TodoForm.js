@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid'
 import { useEffect, useState } from 'react'
 
 const TodoForm = ({ onNewTodo, editData }) => {
@@ -42,11 +41,9 @@ const TodoForm = ({ onNewTodo, editData }) => {
     }
 
     if (editData) {
-      newTodo.id = editData.id
       newTodo.date = editData.date
       newTodo.updatedDate = fullDate
     } else {
-      newTodo.id = uuid()
       newTodo.date = fullDate
       newTodo.updatedDate = null
     }

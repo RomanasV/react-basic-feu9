@@ -1,5 +1,3 @@
-import { v4 as uuid } from 'uuid'
-
 import { useEffect, useState } from 'react'
 
 const CarForm = (props) => {
@@ -46,18 +44,9 @@ const CarForm = (props) => {
   const newCarHandler = (event) => {
     event.preventDefault()
 
-    // let pickedColor = selectedColor
-
-    // if (selectedColor === 'other') {
-    //   pickedColor = customColor
-    // }
-    
     const pickedColor = selectedColor === 'other' ? customColor : selectedColor
 
-    const id = editCarData ? editCarData.id : uuid()
-
     const newCar = {
-      id,
       brand,
       model,
       engine,

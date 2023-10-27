@@ -1,21 +1,6 @@
 {
   "cities": [
     {
-      "name": "Vilnius 3",
-      "population": 13000,
-      "location": {
-        "continent": "Europe",
-        "country": "Lithuania"
-      },
-      "touristAttractions": [
-        "Pirma",
-        "Antra",
-        "Trecia"
-      ],
-      "isCapital": true,
-      "id": 1
-    },
-    {
       "name": "Kaunas",
       "population": 10000,
       "location": {
@@ -28,6 +13,42 @@
       ],
       "isCapital": false,
       "id": 2
+    },
+    {
+      "name": "",
+      "population": 0,
+      "location": {
+        "continent": "",
+        "country": ""
+      },
+      "touristAttractions": [],
+      "isCapital": false,
+      "id": 3
+    }
+  ],
+  "cars": [
+    {
+      "brand": "asfdsdf redaguoti",
+      "model": "sdfsdf",
+      "engine": "petrol",
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "color": "black",
+      "customColor": false,
+      "id": 1
+    }
+  ],
+  "todos": [
+    {
+      "title": "aasdfsdf",
+      "description": "",
+      "done": true,
+      "dueDate": "",
+      "date": "2023-10-27",
+      "updatedDate": null,
+      "id": 1
     }
   ]
 }
