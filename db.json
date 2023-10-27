@@ -30,7 +30,7 @@
     {
       "brand": "asfdsdf redaguoti",
       "model": "sdfsdf",
-      "engine": "petrol",
+      "engineTypeId": 2,
       "basePrice": "",
       "mileage": "",
       "image": "",
@@ -38,6 +38,70 @@
       "color": "black",
       "customColor": false,
       "id": 1
+    },
+    {
+      "brand": "dasdasd",
+      "model": "",
+      "engineTypeId": 2,
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "color": "black",
+      "customColor": false,
+      "id": 2
+    },
+    {
+      "brand": "sdfsdf",
+      "model": "",
+      "engineTypeId": 1,
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "color": "black",
+      "customColor": false,
+      "id": 3
+    },
+    {
+      "brand": "asdasd",
+      "model": "asdads",
+      "engineTypeId": 1,
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "color": "black",
+      "customColor": false,
+      "id": 4
+    }
+  ],
+  "engineTypes": [
+    {
+      "id": 1,
+      "title": "petrol"
+    },
+    {
+      "id": 2,
+      "title": "electric"
+    },
+    {
+      "id": 3,
+      "title": "diesel"
+    },
+    {
+      "id": 4,
+      "title": "hybrid"
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "name": "black"
+    },
+    {
+      "id": 2,
+      "name": "red"
     }
   ],
   "todos": [

@@ -1,6 +1,6 @@
 const CarItem = (props) => {
   const { onRemoveCar, onEditCar } = props
-  const { brand, model, color, engine, image, mileage, basePrice, customColor, discount, id } = props.data
+  const { brand, model, color, engineType, image, mileage, basePrice, customColor, discount, id } = props.data
 
   // let enginePrice = 0
 
@@ -28,15 +28,15 @@ const CarItem = (props) => {
   // }
 
   const getEnginePrice = () => {
-    if (engine === 'electric') {
+    if (engineType.title === 'electric') {
       return 10000
     }
 
-    if (engine === 'hybrid') {
+    if (engineType.title === 'hybrid') {
       return 7500
     }
 
-    if (engine === 'diesel') {
+    if (engineType.title === 'diesel') {
       return 5000
     }
 
@@ -107,7 +107,7 @@ const CarItem = (props) => {
 
       <div>
         <h3>2. Papildomos paslaugos:</h3>
-        <p>2.1. Variklio tipas ({engine}): {enginePrice} €</p>
+        <p>2.1. Variklio tipas ({engineType.title}): {enginePrice} €</p>
         <p>2.2. Spalva ({color}): {colorPrice} €</p>
         <p>2.3. VISO: {extrasPrice} €</p>
       </div>

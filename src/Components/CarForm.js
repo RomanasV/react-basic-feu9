@@ -1,30 +1,43 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { API_URL } from '../config'
 
 const CarForm = (props) => {
   const { onNewCar, editCarData } = props
 
-  const engineTypes = ['petrol', 'electric', 'diesel', 'hybrid']
-  const defaultEngine = engineTypes[0]
+  // const engineTypes = ['petrol', 'electric', 'diesel', 'hybrid']
+  // const defaultEngine = engineTypes[0]
 
   const colorOptions = ['black', 'red', 'blue', 'silver', 'white', 'special blue', 'other']
 
   const [brand, setBrand] = useState('')
   const [model, setModel] = useState('')
-  const [engine, setEngine] = useState(defaultEngine)
+  const [engine, setEngine] = useState('')
   const [basePrice, setBasePrice] = useState('')
   const [mileage, setMileage] = useState('')
   const [image, setImage] = useState('')
   const [selectedColor, setSelectedColor] = useState('black')
   const [customColor, setCustomColor] = useState('')
   const [discount, setDiscount] = useState('')
+  const [engineTypes, setEngineTypes] = useState([])
+
+  useEffect(() => {
+    const getEngineTypes = async () => {
+      const { data } = await axios(`${API_URL}/engineTypes`)
+      setEngineTypes(data)
+      setEngine(data[0].id)
+    }
+
+    getEngineTypes()
+  }, [])
 
   useEffect(() => {
     if (editCarData) {
-      const { brand, basePrice, color, engine, image, mileage, model, discount, customColor } = editCarData
+      const { brand, basePrice, color, engineTypeId, image, mileage, model, discount, customColor } = editCarData
       setBrand(brand)
       setModel(model)
       setBasePrice(basePrice)
-      setEngine(engine)
+      setEngine(engineTypeId)
       setImage(image)
       setMileage(mileage)
       setDiscount(discount)
@@ -49,7 +62,7 @@ const CarForm = (props) => {
     const newCar = {
       brand,
       model,
-      engine,
+      engineTypeId: Number(engine),
       basePrice,
       mileage,
       image,
@@ -60,7 +73,7 @@ const CarForm = (props) => {
 
     setBrand('')
     setModel('')
-    setEngine(defaultEngine)
+    setEngine(engineTypes[0].id)
     setMileage('')
     setBasePrice('')
     setImage('')
@@ -142,7 +155,7 @@ const CarForm = (props) => {
       <div className="form-control">
         <label htmlFor="engine">Engine:</label>
         <select id="engine" name="engine" value={engine} onChange={engineInputHandler}>
-          {engineTypes.map((type, index) => <option value={type} key={index}>{type}</option>)}
+          {engineTypes.map((type) => <option value={type.id} key={type.id}>{type.title}</option> )}
         </select>
       </div>
 

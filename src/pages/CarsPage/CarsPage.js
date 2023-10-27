@@ -48,7 +48,7 @@ const CarsPage = () => {
 
   useEffect(() => {
     const getCars = async () => {
-      const { data } = await axios(`${API_URL}/cars?_sort=id&_order=desc`)
+      const { data } = await axios(`${API_URL}/cars?_sort=id&_order=desc&_expand=engineType`)
       setCars(data)
     }
 
@@ -69,7 +69,8 @@ const CarsPage = () => {
 
   const newCarHandler = async newCar => {
     if (editCar) {
-      const { data } = await axios.put(`${API_URL}/cars/${editCar.id}`, newCar)
+      await axios.put(`${API_URL}/cars/${editCar.id}`, newCar)
+      const { data } = await axios(`${API_URL}/cars/${editCar.id}?_expand=engineType`)
 
       setCars(prevState => {
         const editCarId = data.id
