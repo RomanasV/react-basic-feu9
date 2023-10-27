@@ -68,7 +68,7 @@ const CarItem = (props) => {
   }
 
   const getColorPrice = () => {
-    if (color === 'special blue') {
+    if (color.name === 'special blue') {
       return 500
     }
 
@@ -98,7 +98,7 @@ const CarItem = (props) => {
     <div className="car-item">
       <h2>{brand} ({model})</h2>
 
-      {image && <img style={{width: '100%'}} src={image} alt={`${color} ${brand} ${model}`} />}
+      {image && <img style={{width: '100%'}} src={image} alt={`${color.name} ${brand} ${model}`} />}
 
       <div>
         <h3>1. Automobilio kaina:</h3>
@@ -108,7 +108,7 @@ const CarItem = (props) => {
       <div>
         <h3>2. Papildomos paslaugos:</h3>
         <p>2.1. Variklio tipas ({engineType.title}): {enginePrice} €</p>
-        <p>2.2. Spalva ({color}): {colorPrice} €</p>
+        <p>2.2. Spalva ({color.name}): {colorPrice} €</p>
         <p>2.3. VISO: {extrasPrice} €</p>
       </div>
 

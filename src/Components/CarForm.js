@@ -8,7 +8,7 @@ const CarForm = (props) => {
   // const engineTypes = ['petrol', 'electric', 'diesel', 'hybrid']
   // const defaultEngine = engineTypes[0]
 
-  const colorOptions = ['black', 'red', 'blue', 'silver', 'white', 'special blue', 'other']
+  // const colorOptions = ['black', 'red', 'blue', 'silver', 'white', 'special blue', 'other']
 
   const [brand, setBrand] = useState('')
   const [model, setModel] = useState('')
@@ -16,10 +16,11 @@ const CarForm = (props) => {
   const [basePrice, setBasePrice] = useState('')
   const [mileage, setMileage] = useState('')
   const [image, setImage] = useState('')
-  const [selectedColor, setSelectedColor] = useState('black')
+  const [selectedColor, setSelectedColor] = useState('')
   const [customColor, setCustomColor] = useState('')
   const [discount, setDiscount] = useState('')
   const [engineTypes, setEngineTypes] = useState([])
+  const [colorOptions, setColorOptions] = useState([])
 
   useEffect(() => {
     const getEngineTypes = async () => {
@@ -28,11 +29,19 @@ const CarForm = (props) => {
       setEngine(data[0].id)
     }
 
+    const getColors = async () => {
+      const { data } = await axios(`${API_URL}/colors`)
+      setColorOptions(data)
+      setSelectedColor(data[0].id)
+    }
+
     getEngineTypes()
+    getColors()
   }, [])
 
   useEffect(() => {
     if (editCarData) {
+      console.log(editCarData)
       const { brand, basePrice, color, engineTypeId, image, mileage, model, discount, customColor } = editCarData
       setBrand(brand)
       setModel(model)
@@ -46,7 +55,7 @@ const CarForm = (props) => {
         setSelectedColor('other')
         setCustomColor(color)
       } else {
-        setSelectedColor(color)
+        setSelectedColor(color.id)
       }
     }
   }, [editCarData])
@@ -57,7 +66,7 @@ const CarForm = (props) => {
   const newCarHandler = (event) => {
     event.preventDefault()
 
-    const pickedColor = selectedColor === 'other' ? customColor : selectedColor
+    // const pickedColor = selectedColor === 'other' ? customColor : selectedColor
 
     const newCar = {
       brand,
@@ -67,7 +76,7 @@ const CarForm = (props) => {
       mileage,
       image,
       discount,
-      color: pickedColor,
+      colorId: Number(selectedColor),
       customColor: selectedColor === 'other'
     }
 
@@ -78,7 +87,7 @@ const CarForm = (props) => {
     setBasePrice('')
     setImage('')
     setCustomColor('')
-    setSelectedColor('black')
+    setSelectedColor(colorOptions[0].id)
     setDiscount('')
 
     onNewCar(newCar)
@@ -162,7 +171,7 @@ const CarForm = (props) => {
       <div className="form-control">
         <label htmlFor="color">Color:</label>
         <select id="color" name="color" onChange={colorHandler} value={selectedColor}>
-          {colorOptions.map((color, index) => <option key={index} value={color}>{color}</option>)}
+          {colorOptions.map((color) => <option key={color.id} value={color.id}>{color.name}</option>)}
         </select>
       </div>
 

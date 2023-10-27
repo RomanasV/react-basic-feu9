@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { API_URL } from '../config'
 
 const CitiesForm = (props) => {
   const { onNewCity, editCityData } = props
@@ -9,6 +11,17 @@ const CitiesForm = (props) => {
   const [country, setCountry] = useState('')
   const [isCapital, setIsCapital] = useState(false)
   const [touristAttractions, setTouristAttractions] = useState([])
+  const [continentOptions, setContinentOptions] = useState([])
+
+  useEffect(() => {
+    const getContinents = async () => {
+      const { data } = await axios(`${API_URL}/continents`)
+      setContinentOptions(data)
+      setContinent(data[0].id)
+    }
+
+    getContinents()
+  }, [])
 
   useEffect(() => {
     if (editCityData) {
@@ -97,13 +110,17 @@ const CitiesForm = (props) => {
 
         <div className="form-control">
           <label htmlFor="continent">City continent:</label>
-          <input 
+          {/* <input 
             type="text"
             id="continent" 
             name="continent" 
             value={continent}
             onChange={continentInputHandler}
-          />
+          /> */}
+
+          <select value={continent} onChange={continentInputHandler}>
+            {continentOptions.map(continent => <option key={continent.id} value={continent.id}>{continent.name}</option>)}
+          </select>
         </div>
 
         <div className="form-control">

@@ -24,6 +24,40 @@
       "touristAttractions": [],
       "isCapital": false,
       "id": 3
+    },
+    {
+      "name": "",
+      "population": 0,
+      "location": {
+        "continent": "1",
+        "country": ""
+      },
+      "touristAttractions": [],
+      "isCapital": false,
+      "id": 4
+    },
+    {
+      "name": "sfsdf",
+      "population": 0,
+      "location": {
+        "continent": "",
+        "country": "sdfsdf"
+      },
+      "touristAttractions": [
+        "Sdfsdf"
+      ],
+      "isCapital": true,
+      "id": 5
+    }
+  ],
+  "continents": [
+    {
+      "id": 1,
+      "name": "Europe"
+    },
+    {
+      "id": 2,
+      "name": "Africa"
     }
   ],
   "cars": [
@@ -35,45 +69,105 @@
       "mileage": "",
       "image": "",
       "discount": "",
-      "color": "black",
+      "colorId": 3,
       "customColor": false,
       "id": 1
     },
     {
-      "brand": "dasdasd",
+      "brand": "",
       "model": "",
-      "engineTypeId": 2,
+      "engineTypeId": 1,
       "basePrice": "",
       "mileage": "",
       "image": "",
       "discount": "",
-      "color": "black",
+      "colorId": 1,
       "customColor": false,
       "id": 2
     },
     {
-      "brand": "sdfsdf",
+      "brand": "",
       "model": "",
       "engineTypeId": 1,
       "basePrice": "",
       "mileage": "",
       "image": "",
       "discount": "",
-      "color": "black",
+      "colorId": 1,
       "customColor": false,
       "id": 3
     },
     {
-      "brand": "asdasd",
-      "model": "asdads",
+      "brand": "",
+      "model": "",
       "engineTypeId": 1,
       "basePrice": "",
       "mileage": "",
       "image": "",
       "discount": "",
-      "color": "black",
+      "colorId": 1,
       "customColor": false,
       "id": 4
+    },
+    {
+      "brand": "",
+      "model": "",
+      "engineTypeId": 1,
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "colorId": 1,
+      "customColor": false,
+      "id": 5
+    },
+    {
+      "brand": "",
+      "model": "",
+      "engineTypeId": 1,
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "colorId": 1,
+      "customColor": false,
+      "id": 6
+    },
+    {
+      "brand": "fadfsdf",
+      "model": "",
+      "engineTypeId": 1,
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "colorId": 1,
+      "customColor": false,
+      "id": 7
+    },
+    {
+      "brand": "gdfgdfg",
+      "model": "",
+      "engineTypeId": 1,
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "colorId": 3,
+      "customColor": false,
+      "id": 8
+    },
+    {
+      "brand": "",
+      "model": "",
+      "engineTypeId": 1,
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "colorId": 7,
+      "customColor": false,
+      "id": 9
     }
   ],
   "engineTypes": [
@@ -102,6 +196,26 @@
     {
       "id": 2,
       "name": "red"
+    },
+    {
+      "id": 3,
+      "name": "blue"
+    },
+    {
+      "id": 4,
+      "name": "silver"
+    },
+    {
+      "id": 5,
+      "name": "white"
+    },
+    {
+      "id": 6,
+      "name": "special blue"
+    },
+    {
+      "id": 7,
+      "name": "other"
     }
   ],
   "todos": [
