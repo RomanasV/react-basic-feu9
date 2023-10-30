@@ -1,0 +1,17 @@
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+
+  @media (max-width: 999px) {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  @media (max-width: 799px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 599px) {
+    grid-template-columns: 1fr;
+  }
+}

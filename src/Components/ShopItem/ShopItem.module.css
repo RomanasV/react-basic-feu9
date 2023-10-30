@@ -1,0 +1,15 @@
+.shopTitle {
+  margin-top: 0;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.shopContactsList {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.shopContactTitle {
+  font-weight: 700;
+}

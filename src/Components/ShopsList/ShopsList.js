@@ -1,5 +1,6 @@
 import ShopItem from '../ShopItem/ShopItem'
-import './ShopsList.css'
+// import './ShopsList.css'
+import styles from './ShopsList.module.css'
 
 function ShopsList(props) {
   const { shopsData } = props
@@ -15,7 +16,7 @@ function ShopsList(props) {
   // ))
 
   return (
-    <div className="shops-list">
+    <div className={styles.shopsList}>
       {/* {shopsListElement} */}
 
       {shopsData.map((shop, index) => (

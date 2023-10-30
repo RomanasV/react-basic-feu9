@@ -1,0 +1,23 @@
+.shopsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+@media (max-width: 799px) {
+  .shopsList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 599px) {
+  .shopsList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 449px) {
+  .shopsList {
+    grid-template-columns: 1fr;
+  }
+}

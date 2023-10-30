@@ -1,9 +1,12 @@
 import Card from '../Card/Card';
-import './MapWrapper.css'
+// import './MapWrapper.css'
+import styles from './MapWrapper.module.css'
+
+console.log(styles)
 
 export default function MapWrapper() {
   return (
-    <div className="map-wrapper">
+    <div className={styles.mapWrapper}>
       <Card>
         <iframe 
           title='Shops map list'

@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import ContactUsPage from './pages/ContactUsPage'
 import NewsPage from './pages/NewsPage'
 import CounterPage from './pages/CounterPage'
