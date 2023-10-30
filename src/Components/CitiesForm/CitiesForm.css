@@ -1,0 +1,47 @@
+#city-form {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  padding: 30px;
+  background-color: white;
+}
+
+#city-form .form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  gap: 10px 0;
+}
+
+#city-form .form-control.form-control-inline {
+  flex-direction: row;
+}
+
+#city-form .form-control label {
+  font-weight: 600;
+  color: green;
+  font-size: 20px;
+}
+
+#city-form .form-control input {
+  border: 2px solid orange;
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+#city-form .form-control input:focus {
+  background-color: rgb(253, 237, 240);
+}
+
+#city-form .form-control.invalid input {
+  border-color: red;
+  background-color: pink;
+}
+
+#city-form .form-control.invalid label {
+  color: red;
+}
+
+.input-error-message {
+  color: red;
+}

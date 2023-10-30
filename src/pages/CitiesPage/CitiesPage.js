@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Container from "../../Components/Container/Container"
 import CityItem from "../../Components/CityItem";
 import './CitiesPage.css'
-import CitiesForm from "../../Components/CitiesForm";
+import CitiesForm from "../../Components/CitiesForm/CitiesForm";
 import axios from 'axios';
 import { API_URL } from '../../config';
 

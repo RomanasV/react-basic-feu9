@@ -1,6 +1,86 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { API_URL } from '../config'
+import { API_URL } from '../../config'
+
+import './CitiesForm.css'
+
+import styled from 'styled-components'
+
+import styles from './CitiesForm.module.css';
+
+const FormControl = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  gap: 10px 0;
+
+  &.form-control-inline {
+    flex-direction: row;
+  }
+
+  label {
+    font-weight: 600;
+    color: green;
+    font-size: 20px;
+  }
+
+  input {
+    border: 2px solid orange;
+    border-radius: 50px;
+    padding: 5px 15px;
+
+    &:focus {
+      background-color: rgb(253, 237, 240);
+    }
+  }
+
+  &.invalid {
+    input {
+      border-color: red;
+      background-color: pink;
+    }
+
+    label {
+      color: red;
+    }
+  }
+
+  .input-error-message {
+    color: red;
+  }
+`
+
+const FormControlWithProps = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  gap: 10px 0;
+
+  &.form-control-inline {
+    flex-direction: row;
+  }
+
+  label {
+    font-weight: 600;
+    color: ${props => props.invalid ? 'red' : 'green'};
+    font-size: 20px;
+  }
+
+  input {
+    border: 2px solid ${props => props.invalid ? 'red' : 'orange'};
+    border-radius: 50px;
+    padding: 5px 15px;
+    background-color: ${props => props.invalid ? 'pink' : 'transparent'};
+
+    &:focus {
+      background-color: rgb(253, 237, 240);
+    }
+  }
+
+  .input-error-message {
+    color: red;
+  }
+`
 
 const CitiesForm = (props) => {
   const { onNewCity, editCityData } = props
@@ -122,7 +202,8 @@ const CitiesForm = (props) => {
 
   return (
     <form id="city-form" onSubmit={newCityHandler}>
-        <div className="form-control">
+        {/* 5. CSS Module */}
+        <div className={`${styles.formControl} ${nameError && styles.invalid}`}>
           <label htmlFor="name">City name:</label>
           <input 
             type="text" 
@@ -134,7 +215,30 @@ const CitiesForm = (props) => {
           {nameError && <span className="input-error-message">{nameError}</span>}
         </div>
 
+        {/* 1. Inline CSS sąlygos */}
         <div className="form-control">
+          <label 
+            htmlFor="name" 
+            style={{ color: nameError ? 'red' : 'green' }}
+          >
+            City name:
+          </label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            value={name}
+            onChange={nameInputHandler}
+            style={{
+              borderColor: nameError ? 'red' : 'orange',
+              backgroundColor: nameError ? 'pink' : 'transparent',
+            }}
+          />
+          {nameError && <span className="input-error-message">{nameError}</span>}
+        </div>
+
+        {/* 2. Priklausomai nuo state keičiama klasė */}
+        <div className={`form-control ${populationError ? 'invalid' : ''}`}>
           <label htmlFor="population">City population:</label>
           <input 
             type="number"
@@ -163,7 +267,8 @@ const CitiesForm = (props) => {
           </select>
         </div>
 
-        <div className="form-control">
+        {/* 3. Styled Components */}
+        {/* <FormControl className={`${countryError ? 'invalid' : ''}`}>
           <label htmlFor="country">City country:</label>
           <input 
             type="text"
@@ -173,7 +278,20 @@ const CitiesForm = (props) => {
             onChange={countryInputHandler}
           />
           {countryError && <span className="input-error-message">{countryError}</span>}
-        </div>
+        </FormControl> */}
+
+        {/* 4. Styled Components su props */}
+        <FormControlWithProps invalid={countryError && 'invalid'} color="green">
+          <label htmlFor="country">City country:</label>
+          <input 
+            type="text"
+            id="country" 
+            name="country" 
+            value={country}
+            onChange={countryInputHandler}
+          />
+          {countryError && <span className="input-error-message">{countryError}</span>}
+        </FormControlWithProps>
 
         <div className="form-control form-control-inline">
           <input 

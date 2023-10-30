@@ -1,0 +1,35 @@
+.formControl {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  gap: 10px 0;
+}
+
+.formControl.formControlInline {
+  flex-direction: row;
+}
+
+.formControl label {
+  font-weight: 600;
+  color: green;
+  font-size: 20px;
+}
+
+.formControl input {
+  border: 2px solid orange;
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+.formControl input:focus {
+  background-color: rgb(253, 237, 240);
+}
+
+.formControl.invalid input {
+  border-color: red;
+  background-color: pink;
+}
+
+.formControl.invalid label {
+  color: red;
+}
