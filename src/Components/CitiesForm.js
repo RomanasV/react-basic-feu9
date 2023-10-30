@@ -13,6 +13,11 @@ const CitiesForm = (props) => {
   const [touristAttractions, setTouristAttractions] = useState([])
   const [continentOptions, setContinentOptions] = useState([])
 
+  const [nameError, setNameError] = useState('')
+  const [populationError, setPopulationError] = useState(false)
+  const [countryError, setCountryError] = useState('')
+  const [invalidForm, setInvalidForm] = useState(false)
+
   useEffect(() => {
     const getContinents = async () => {
       const { data } = await axios(`${API_URL}/continents`)
@@ -37,6 +42,39 @@ const CitiesForm = (props) => {
   const newCityHandler = (event) => {
     event.preventDefault()
 
+    setNameError('')
+    setPopulationError(false)
+    setCountryError('')
+    setInvalidForm(false)
+
+    let formIsValid = true
+
+    if (!name) {
+      setNameError('Name is required')
+      formIsValid = false
+    } else if (name.length < 3) {
+      setNameError('Name must be at least 3 letters long')
+      formIsValid = false
+    }
+
+    if (population < 50) {
+      setPopulationError(true)
+      formIsValid = false
+    }
+
+    if (!country) {
+      setCountryError('Country is required')
+      formIsValid = false
+    } else if (country.length < 3) {
+      setCountryError('Country must be at least 3 letters long')
+      formIsValid = false
+    }
+
+    if (!formIsValid) {
+      setInvalidForm(true)
+      return
+    }
+
     const newCity = {
       name,
       population,
@@ -55,7 +93,7 @@ const CitiesForm = (props) => {
     setIsCapital(false)
     setTouristAttractions([])
 
-    onNewCity(newCity) 
+    onNewCity(newCity)
   }
 
   const nameInputHandler = event => setName(event.target.value)
@@ -93,6 +131,7 @@ const CitiesForm = (props) => {
             value={name}
             onChange={nameInputHandler}
           />
+          {nameError && <span className="input-error-message">{nameError}</span>}
         </div>
 
         <div className="form-control">
@@ -100,12 +139,13 @@ const CitiesForm = (props) => {
           <input 
             type="number"
             min={0}
-            step={1000}
+            step={1}
             id="population" 
             name="population" 
             value={population}
             onChange={populationInputHandler}
           />
+          {populationError && <span className="input-error-message">Population has to be at least 50 people</span>}
         </div>
 
         <div className="form-control">
@@ -132,6 +172,7 @@ const CitiesForm = (props) => {
             value={country}
             onChange={countryInputHandler}
           />
+          {countryError && <span className="input-error-message">{countryError}</span>}
         </div>
 
         <div className="form-control form-control-inline">
@@ -159,6 +200,12 @@ const CitiesForm = (props) => {
         </div>
 
         <input type="submit" value={editCityData ? 'Edit City' : 'Create New City'} />
+
+        {invalidForm && (
+          <div className="error-wrapper">
+            <span className="input-error-message">Something is missing...</span>
+          </div>
+        )}
       </form>
   )
 }

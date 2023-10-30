@@ -30,3 +30,7 @@
 .city-item.last-city-item {
   width: 100%;
 }
+
+.input-error-message {
+  color: red;
+}

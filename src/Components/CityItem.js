@@ -3,9 +3,9 @@ const CityItem = (props) => {
   const { name, population, isCapital, touristAttractions, location, id } = props.data
   const { continent, country } = location
 
-  if (!name || !continent || !country) {
-    return
-  }
+  // if (!name || !continent || !country) {
+  //   return
+  // }
 
   let capitalClass = ''
   let titleElement = name

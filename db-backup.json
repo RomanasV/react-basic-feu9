@@ -1,0 +1,134 @@
+{
+  "cities": [
+    {
+      "name": "Kaunas",
+      "population": 10000,
+      "location": {
+        "continent": "Europe",
+        "country": "Lithuania"
+      },
+      "touristAttractions": [
+        "Pirmas",
+        "Antras"
+      ],
+      "isCapital": false,
+      "id": 2
+    },
+    {
+      "name": "asdasd",
+      "population": 100,
+      "location": {
+        "continent": 1,
+        "country": "sdfsdf"
+      },
+      "touristAttractions": [],
+      "isCapital": false,
+      "id": 3
+    },
+    {
+      "name": "sdfsdf",
+      "population": 100,
+      "location": {
+        "continent": 1,
+        "country": "fsdfsdf"
+      },
+      "touristAttractions": [],
+      "isCapital": false,
+      "id": 4
+    },
+    {
+      "name": "sdfsdf",
+      "population": 1000,
+      "location": {
+        "continent": 1,
+        "country": "asdasd"
+      },
+      "touristAttractions": [],
+      "isCapital": false,
+      "id": 5
+    }
+  ],
+  "continents": [
+    {
+      "id": 1,
+      "name": "Europe"
+    },
+    {
+      "id": 2,
+      "name": "Africa"
+    }
+  ],
+  "cars": [
+    {
+      "brand": "",
+      "model": "",
+      "engineTypeId": 1,
+      "basePrice": "",
+      "mileage": "",
+      "image": "",
+      "discount": "",
+      "colorId": 7,
+      "customColor": false,
+      "id": 1
+    }
+  ],
+  "engineTypes": [
+    {
+      "id": 1,
+      "title": "petrol"
+    },
+    {
+      "id": 2,
+      "title": "electric"
+    },
+    {
+      "id": 3,
+      "title": "diesel"
+    },
+    {
+      "id": 4,
+      "title": "hybrid"
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "name": "black"
+    },
+    {
+      "id": 2,
+      "name": "red"
+    },
+    {
+      "id": 3,
+      "name": "blue"
+    },
+    {
+      "id": 4,
+      "name": "silver"
+    },
+    {
+      "id": 5,
+      "name": "white"
+    },
+    {
+      "id": 6,
+      "name": "special blue"
+    },
+    {
+      "id": 7,
+      "name": "other"
+    }
+  ],
+  "todos": [
+    {
+      "title": "aasdfsdf",
+      "description": "",
+      "done": true,
+      "dueDate": "",
+      "date": "2023-10-27",
+      "updatedDate": null,
+      "id": 1
+    }
+  ]
+}
