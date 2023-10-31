@@ -1,7 +1,11 @@
+import { useContext } from "react"
 import LargeButton from "../LargeButton"
+import { MainContext } from "../../store/newsPageContext/mainContext"
 
-const VideoSection = (props) => {
-  const { title, subTitle, buttonTitle, videoUrl } = props.data
+const VideoSection = () => {
+  const ctx = useContext(MainContext)
+
+  const { title, subTitle, buttonTitle, videoUrl } = ctx.videoSectionData
 
   if (!videoUrl) {
     return

@@ -1,9 +1,13 @@
+import { useContext } from "react"
 import LargeButton from "../LargeButton"
 import MainNews from "./MainNews"
 import SecondaryNews from "./SecondaryNews"
+import { MainContext } from "../../store/newsPageContext/mainContext"
 
-const NewsSection = (props) => {
-  const { mainNewsData, secondaryNewsData, newsSectionTitle, newsSectionButtonTitle } = props.data
+const NewsSection = () => {
+  const ctx = useContext(MainContext)
+
+  const { newsSectionTitle, newsSectionButtonTitle } = ctx.newsSectionData
 
   const titleElement = newsSectionTitle && <h1 className="page-title">{newsSectionTitle}</h1>
 
@@ -11,8 +15,9 @@ const NewsSection = (props) => {
     <section className="news-section">
       {titleElement}
 
-      <MainNews data={mainNewsData} />
-      <SecondaryNews data={secondaryNewsData} />
+      <MainNews />
+      <SecondaryNews />
+      
       <LargeButton url="/" title={newsSectionButtonTitle} hideArrow={true} />
     </section>
   )

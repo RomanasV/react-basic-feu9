@@ -1,13 +1,16 @@
+import { useContext } from "react"
 import NewsItem from "./NewsItem"
+import { MainContext } from "../../store/newsPageContext/mainContext"
 
-const MainNews = (props) => {
-  const { data } = props
+const MainNews = () => {
+  const ctx = useContext(MainContext)
+  const { mainNewsData } = ctx.newsSectionData
 
-  if (data.length === 0) {
+  if (mainNewsData.length === 0) {
     return
   }
 
-  const mainNewsElement = data.map((item, index) => <NewsItem key={index} data={item} />)
+  const mainNewsElement = mainNewsData.map((item, index) => <NewsItem key={index} data={item} />)
 
   return (
     <div className="main-news-list">

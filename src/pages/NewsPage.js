@@ -1,6 +1,8 @@
 import MainContent from '../Components/NewsPage/MainContent'
 import SidebarContent from '../Components/NewsPage/SidebarContent'
 import podcastImage from '../images/podcast-image-border-min.jpg'
+import { MainContext } from '../store/newsPageContext/mainContext'
+import { SidebarContext } from '../store/newsPageContext/sidebarContext'
 import './NewsPage.css'
 
 const NewsPage = () => {
@@ -68,7 +70,7 @@ const NewsPage = () => {
     videoUrl: 'https://www.youtube.com/embed/b8dGCsP75HA'
   }
 
-  const podcastsSectionData = {
+  const podcasts = {
     title: 'Podcastai ir radijo laidos',
     podcastsList: [
       {
@@ -102,7 +104,7 @@ const NewsPage = () => {
     ]
   }
 
-  const eventsSectionData = {
+  const events = {
     title: 'Renginiai',
     buttonTitle: 'Daugiau',
     eventsListData: [
@@ -133,8 +135,13 @@ const NewsPage = () => {
   return (
     <div className="container">
       <div className="page-content-wrapper">
-        <MainContent newsSectionData={newsSectionData} videoSectionData={videoSectionData} />
-        <SidebarContent podcastsSectionData={podcastsSectionData} eventsSectionData={eventsSectionData} />
+        <MainContext.Provider value={{ newsSectionData, videoSectionData }}>
+          <MainContent />
+        </MainContext.Provider>
+
+        <SidebarContext.Provider value={{ podcasts, events}}>
+          <SidebarContent />
+        </SidebarContext.Provider>
       </div>
     </div>
   )
